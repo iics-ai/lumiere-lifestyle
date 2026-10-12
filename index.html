@@ -18,16 +18,16 @@
         extend: {
           colors: {
             brand: {
-              cream: '#FDFBF7',     // 燕麥暖奶底色
-              canvas: '#F7F4EE',    // 淺次底色
-              terracotta: '#D47B62',// 柔和陶土珊瑚粉橘
+              cream: '#FDFBF7',
+              canvas: '#F7F4EE',
+              terracotta: '#D47B62',
               'terracotta-dark': '#B8624A',
-              sage: '#758A7A',      // 舒心鼠尾草綠
+              sage: '#758A7A',
               'sage-light': '#E8EEE9',
               'sage-dark': '#55695A',
-              charcoal: '#2D2B2A',  // 炭黑文字
-              muted: '#7A7571',     // 質感輔助灰字
-              border: '#E8E3D9',    // 柔和邊框
+              charcoal: '#2D2B2A',
+              muted: '#7A7571',
+              border: '#E8E3D9',
               sand: '#EFECE3'
             }
           },
@@ -49,13 +49,6 @@
       color: #2D2B2A;
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #D47B62;
-      border-radius: 9999px;
-    }
   </style>
 </head>
 <body class="selection:bg-brand-terracotta selection:text-white">
@@ -66,7 +59,7 @@
   <header class="sticky top-0 z-40 bg-brand-cream/90 backdrop-blur-md border-b border-brand-border/60 transition duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- 品牌 Logo（具備連點 3 次暗號喚起管理面板） -->
+      <!-- 品牌 Logo（具備連點 3 次暗號喚起管理功能） -->
       <div onclick="handleSecretClick()" class="flex items-center gap-3 cursor-pointer select-none group" title="暖日漫聚">
         <div class="w-10 h-10 rounded-2xl bg-brand-terracotta/10 border border-brand-terracotta/20 flex items-center justify-center text-brand-terracotta font-serif font-bold text-lg group-hover:scale-105 transition-transform duration-300">
           漫
@@ -93,7 +86,7 @@
           測測這週想去哪放鬆
         </button>
 
-        <!-- 管理者暗門按鈕 (預設隱藏，解鎖後顯現) -->
+        <!-- 管理者暗門按鈕 (預設隱藏) -->
         <button id="adminTriggerBtn" onclick="toggleAdminDrawer()" class="hidden items-center gap-1.5 px-3 py-2 text-xs font-medium text-stone-600 bg-white border border-stone-200 rounded-xl hover:bg-stone-50 transition shadow-sm animate-pulse">
           <svg class="w-3.5 h-3.5 text-brand-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
           <span>活動微調後台</span>
@@ -115,17 +108,17 @@
       <div class="max-w-3xl">
         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-sand text-xs font-medium text-brand-charcoal mb-6 border border-brand-border">
           <span class="w-2 h-2 rounded-full bg-brand-sage animate-ping"></span>
-          <span>週末無負擔提案・找回生活的自在感</span>
+          <span>十月秋意生活提案・找回日常的自在步調</span>
         </div>
         <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-brand-charcoal font-bold tracking-tight leading-[1.25] mb-6">
           在忙碌日常裡，<br>
-          留給自己一場<span class="text-brand-terracotta underline decoration-brand-terracotta/30 underline-offset-8">零壓力的聚會</span>。
+          留給自己一場<span class="text-brand-terracotta underline decoration-brand-terracotta/30 underline-offset-8">零壓力的相遇</span>。
         </h1>
         <p class="text-base sm:text-lg text-brand-muted leading-relaxed mb-8 font-light">
           不用複雜準備、沒有社交壓力。在咖啡香裡畫畫曼陀羅、羽球場上隨性揮拍、在公園草地上分享喜歡的零食點心。一杯咖啡的費用，換一個溫暖放鬆的週末時光。
         </p>
         
-        <!-- 亮點標籤 -->
+        <!-- 亮點特色標籤 -->
         <div class="flex flex-wrap gap-2.5 mb-10 text-xs text-brand-charcoal/80 font-medium">
           <span class="px-3 py-1.5 rounded-lg bg-white border border-brand-border shadow-2xs"># 免備用具人來就好</span>
           <span class="px-3 py-1.5 rounded-lg bg-white border border-brand-border shadow-2xs"># 單人報名高達八成不用怕尷尬</span>
@@ -139,7 +132,7 @@
           </a>
           <button onclick="openQuizModal()" class="inline-flex justify-center items-center px-7 py-4 rounded-2xl bg-white border border-brand-border text-brand-charcoal hover:bg-brand-canvas hover:border-brand-terracotta/40 font-medium transition duration-300 text-sm shadow-soft">
             <svg class="w-4 h-4 mr-2 text-brand-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-            30秒測測這週最適合去哪？
+            30秒測測這週末適合去哪？
           </button>
         </div>
       </div>
@@ -147,7 +140,7 @@
   </section>
 
   <!-- ========================================== -->
-  <!-- 3. 本週主打推薦 (Featured Hero Spotlight)    -->
+  <!-- 3. 本週主打推薦 (Featured Spotlight)        -->
   <!-- ========================================== -->
   <section id="featured" class="py-12 bg-brand-canvas border-y border-brand-border/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -156,7 +149,7 @@
           <span class="text-xs uppercase tracking-widest text-brand-terracotta font-bold block mb-1">Weekly Spotlight</span>
           <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-charcoal">本週主打推薦</h2>
         </div>
-        <span class="text-xs text-brand-muted hidden sm:inline">即將登場・歡迎一個人來放鬆</span>
+        <span class="text-xs text-brand-muted hidden sm:inline">近期即將登場・歡迎一個人來放鬆</span>
       </div>
 
       <!-- 主打活動卡片 -->
@@ -182,16 +175,16 @@
         🎨 曼陀羅與色彩
       </button>
       <button onclick="setFilter('sports')" data-cat="sports" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold transition-all duration-200">
-        🏸 晨光活力羽球
+        🏸 活力羽球
       </button>
       <button onclick="setFilter('social')" data-cat="social" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold transition-all duration-200">
         🎲 咖啡廳輕桌遊
       </button>
-      <button onclick="setFilter('reading')" data-cat="reading" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold transition-all duration-200">
-        📚 隨興微讀書會
-      </button>
       <button onclick="setFilter('picnic')" data-cat="picnic" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold transition-all duration-200">
         🧺 草地分享野餐
+      </button>
+      <button onclick="setFilter('reading')" data-cat="reading" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold transition-all duration-200">
+        📚 隨興微讀書會
       </button>
     </div>
 
@@ -200,13 +193,13 @@
       <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0">
         <span class="text-xs text-brand-muted whitespace-nowrap">狀態：</span>
         <button onclick="setStatusFilter('all')" class="status-btn active-status text-xs px-3 py-1 rounded-md">全部</button>
-        <button onclick="setStatusFilter('open')" class="status-btn text-xs px-3 py-1 rounded-md">報名中</button>
-        <button onclick="setStatusFilter('urgent')" class="status-btn text-xs px-3 py-1 rounded-md">席位倒數</button>
+        <button onclick="setStatusFilter('open')" class="status-btn text-xs px-3 py-1 rounded-md">熱烈報名中</button>
+        <button onclick="setStatusFilter('urgent')" class="status-btn text-xs px-3 py-1 rounded-md">本週推薦</button>
       </div>
 
       <!-- 關鍵字搜尋 -->
       <div class="relative w-full sm:w-64">
-        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="搜尋活動（如：羽球、咖啡...）" class="w-full text-xs pl-9 pr-4 py-2.5 rounded-full border border-brand-border bg-white focus:outline-none focus:border-brand-terracotta transition">
+        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="搜尋活動（如：羽球、曼陀羅...）" class="w-full text-xs pl-9 pr-4 py-2.5 rounded-full border border-brand-border bg-white focus:outline-none focus:border-brand-terracotta transition">
         <svg class="w-3.5 h-3.5 text-stone-400 absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
       </div>
     </div>
@@ -222,23 +215,23 @@
     <div class="max-w-4xl mx-auto px-4 text-center">
       <h3 class="font-serif text-2xl font-bold text-brand-charcoal mb-4">我們喜歡的聚會模樣</h3>
       <p class="text-brand-muted text-sm leading-relaxed mb-8 max-w-2xl mx-auto">
-        生活已經有太多待辦事項與KPI，週末聚會就該回歸純粹的休息。不用提前準備、沒有繁瑣門檻，帶著放鬆的心情出門就好。
+        生活已經有太多待辦事項與 KPI，週末聚會就該回歸純粹的休息。不用提前準備、沒有繁瑣門檻，帶著放鬆的心情出門就好。
       </p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
         <div class="p-6 rounded-2xl bg-brand-canvas border border-brand-border">
           <div class="text-brand-terracotta text-2xl mb-2">☕</div>
           <h4 class="font-bold text-sm text-brand-charcoal mb-1">透明親民的收費</h4>
-          <p class="text-xs text-brand-muted">多數活動僅收 200 元（包含 150 元低消飲品）或現場自理低消，無隱藏費用。</p>
+          <p class="text-xs text-brand-muted">曼陀羅與桌遊僅收 200 元（含 150 元低消飲品）；羽球 200 元含場地；野餐與讀書會現場自理。</p>
         </div>
         <div class="p-6 rounded-2xl bg-brand-canvas border border-brand-border">
           <div class="text-brand-sage text-2xl mb-2">🎈</div>
           <h4 class="font-bold text-sm text-brand-charcoal mb-1">空手出席・無須功課</h4>
-          <p class="text-xs text-brand-muted">曼陀羅免帶紙筆、讀書會不用寫心得。想聊就聊、想聽就聽，自然不費力。</p>
+          <p class="text-xs text-brand-muted">曼陀羅免帶紙筆現場提供、讀書會不用寫心得。想聊就聊、想聽就聽，自然不費力。</p>
         </div>
         <div class="p-6 rounded-2xl bg-brand-canvas border border-brand-border">
           <div class="text-brand-terracotta text-2xl mb-2">🏸</div>
           <h4 class="font-bold text-sm text-brand-charcoal mb-1">新手極度友善</h4>
-          <p class="text-xs text-brand-muted">羽球不論球技、桌遊有專人帶玩，超過 8 成參加者都是單獨報名，溫暖融入。</p>
+          <p class="text-xs text-brand-muted">羽球不論球技只求揮拍流汗、桌遊有專人帶玩，超過 8 成參加者都是單獨報名，溫暖融入。</p>
         </div>
       </div>
     </div>
@@ -249,116 +242,21 @@
     <div class="space-y-4">
       <div class="border border-brand-border rounded-2xl p-5 bg-white shadow-2xs">
         <h4 class="font-bold text-sm text-brand-charcoal mb-1">Q: 曼陀羅彩繪需要有繪畫基礎嗎？要自己帶畫具嗎？</h4>
-        <p class="text-xs text-brand-muted leading-relaxed">完全不需要繪畫基礎！現場會提供專屬紙卡與彩繪用具，人來就好。著色後會由主辦人透過顏色進行直覺分享與心理小分析，輕鬆好玩。</p>
+        <p class="text-xs text-brand-muted leading-relaxed">完全不需要！現場備有專屬畫紙與色筆，人來就好。著色後會由負責人透過直覺顏色進行分析與交流，輕鬆好玩。</p>
       </div>
       <div class="border border-brand-border rounded-2xl p-5 bg-white shadow-2xs">
-        <h4 class="font-bold text-sm text-brand-charcoal mb-1">Q: 讀書會真的不需要帶書或寫讀書心得嗎？</h4>
-        <p class="text-xs text-brand-muted leading-relaxed">是的！不用帶實體書、也不用做任何功課。只要腦海中想一本你曾喜歡過的小說、繪本或實用書，點一杯自己喜歡的飲品，大家輪流當聊天話題分享即可。</p>
+        <h4 class="font-bold text-sm text-brand-charcoal mb-1">Q: 羽球活動如何報名？新手可以去嗎？</h4>
+        <p class="text-xs text-brand-muted leading-relaxed">羽球活動直接點擊「報名席次」填寫專屬 Google 表單即可！場地在大同運動中心，是極度新手友善的歡樂局，歡迎一個人來揮拍流汗。</p>
       </div>
       <div class="border border-brand-border rounded-2xl p-5 bg-white shadow-2xs">
         <h4 class="font-bold text-sm text-brand-charcoal mb-1">Q: 草地野餐需要帶什麼食物？</h4>
-        <p class="text-xs text-brand-muted leading-relaxed">每人帶約 150 元預算的食物即可（如：麵包店的可頌、水果切盒、餅乾或小點心），大家在野餐墊上一起分享品嚐、自在吹風聊天。</p>
+        <p class="text-xs text-brand-muted leading-relaxed">每人自備約 150 元預算的食物即可（如：麵包可頌、水果切盒、餅乾小點心），大家在野餐墊上一起分享品嚐、自在吹風聊天。</p>
       </div>
     </div>
   </section>
 
   <!-- ========================================== -->
-  <!-- 6. 報名彈窗 (Registration Modal)           -->
-  <!-- ========================================== -->
-  <div id="registerModal" class="fixed inset-0 z-50 hidden bg-brand-charcoal/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative my-8">
-      
-      <!-- 關閉按鈕 -->
-      <button onclick="closeRegisterModal()" class="absolute top-6 right-6 text-stone-400 hover:text-stone-700 p-1 rounded-full hover:bg-stone-100 transition">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-      </button>
-
-      <!-- 彈窗內容：表單狀態 -->
-      <div id="modalFormView">
-        <span class="text-xs font-bold text-brand-terracotta uppercase tracking-wider block mb-1">Quick Join</span>
-        <h3 id="modalEventTitle" class="font-serif text-xl sm:text-2xl font-bold text-brand-charcoal mb-2">活動名稱</h3>
-        <p id="modalEventSubtitle" class="text-xs text-brand-muted mb-6 flex items-center gap-2">
-          <span>📅 日期時間</span> • <span>📍 地點</span>
-        </p>
-
-        <form id="bookingForm" onsubmit="handleFormSubmit(event)" class="space-y-4 text-xs">
-          <div>
-            <label class="block font-semibold text-brand-charcoal mb-1.5">您的稱呼 / 暱稱 *</label>
-            <input type="text" id="regName" required placeholder="如：小佩、Pei-Hsin" class="w-full px-4 py-3 rounded-xl border border-brand-border bg-brand-cream/50 focus:bg-white focus:outline-none focus:border-brand-terracotta text-xs">
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block font-semibold text-brand-charcoal mb-1.5">手機號碼 *</label>
-              <input type="tel" id="regPhone" required placeholder="0912-345-678" class="w-full px-4 py-3 rounded-xl border border-brand-border bg-brand-cream/50 focus:bg-white focus:outline-none focus:border-brand-terracotta text-xs">
-            </div>
-            <div>
-              <label class="block font-semibold text-brand-charcoal mb-1.5">LINE ID (發送行前提醒) *</label>
-              <input type="text" id="regLine" required placeholder="方便行前通知" class="w-full px-4 py-3 rounded-xl border border-brand-border bg-brand-cream/50 focus:bg-white focus:outline-none focus:border-brand-terracotta text-xs">
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block font-semibold text-brand-charcoal mb-1.5">報名人數</label>
-              <select id="regSeats" onchange="calculateTotal()" class="w-full px-4 py-3 rounded-xl border border-brand-border bg-brand-cream/50 focus:bg-white focus:outline-none focus:border-brand-terracotta text-xs">
-                <option value="1">1 位 (一個人自在來)</option>
-                <option value="2">2 位 (找個朋友一起)</option>
-              </select>
-            </div>
-            <div>
-              <label class="block font-semibold text-brand-charcoal mb-1.5">備註說明</label>
-              <input type="text" id="regDiet" placeholder="例如：自備球拍、第一次參加" class="w-full px-4 py-3 rounded-xl border border-brand-border bg-brand-cream/50 focus:bg-white focus:outline-none focus:border-brand-terracotta text-xs">
-            </div>
-          </div>
-
-          <!-- 費用結算 -->
-          <div class="p-4 rounded-2xl bg-brand-canvas border border-brand-border flex items-center justify-between">
-            <div>
-              <span class="text-stone-600 font-medium block" id="modalFeeDesc">費用說明</span>
-              <span class="text-[10px] text-stone-400">現場報到時給付 / 自由低消</span>
-            </div>
-            <div class="text-right">
-              <span id="modalTotalPrice" class="font-serif text-xl font-bold text-brand-terracotta">NT$ 200</span>
-            </div>
-          </div>
-
-          <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-terracotta hover:bg-brand-terracotta-dark text-white font-medium text-xs tracking-wider transition duration-200 shadow-md">
-            確認報名席次
-          </button>
-        </form>
-      </div>
-
-      <!-- 報名成功狀態視窗 -->
-      <div id="modalSuccessView" class="hidden text-center py-6">
-        <div class="w-16 h-16 rounded-full bg-brand-sage-light text-brand-sage mx-auto flex items-center justify-center mb-4">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-        </div>
-        <h3 class="font-serif text-2xl font-bold text-brand-charcoal mb-2">報名完成！</h3>
-        <p class="text-xs text-brand-muted mb-6 max-w-sm mx-auto leading-relaxed">
-          期待週末在聚會中遇見你，放鬆心情人來就好囉！
-        </p>
-
-        <div class="p-4 rounded-2xl bg-brand-cream border border-brand-border text-left text-xs mb-6 space-y-1.5">
-          <p><strong class="text-brand-charcoal">活動名稱：</strong><span id="succEventName">--</span></p>
-          <p><strong class="text-brand-charcoal">預約編號：</strong><span id="succBookingId" class="font-mono text-brand-terracotta font-bold">#LUM-2026</span></p>
-          <p><strong class="text-brand-charcoal">同行人數：</strong><span id="succSeats">1 位</span></p>
-        </div>
-
-        <div class="flex flex-col sm:flex-row gap-3">
-          <a id="addToCalendarBtn" target="_blank" href="#" class="flex-1 py-3 px-4 rounded-xl border border-brand-border hover:bg-brand-canvas text-brand-charcoal text-xs font-semibold flex items-center justify-center gap-2 transition">
-            📅 加到 Google 行事曆
-          </a>
-          <button onclick="openLineDirect()" class="flex-1 py-3 px-4 rounded-xl bg-[#06C755] hover:bg-[#05b34c] text-white text-xs font-semibold flex items-center justify-center gap-2 transition shadow-sm">
-            💬 點此加入 LINE 群
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========================================== -->
-  <!-- 7. 能量測驗彈窗 (Energy Quiz Modal)        -->
+  <!-- 6. 能量測驗彈窗 (Energy Quiz Modal)        -->
   <!-- ========================================== -->
   <div id="quizModal" class="fixed inset-0 z-50 hidden bg-brand-charcoal/60 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
@@ -372,22 +270,18 @@
         <div class="space-y-3 text-xs">
           <button onclick="answerQuiz('mind')" class="w-full text-left p-4 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition duration-200">
             <span class="font-bold block text-brand-charcoal mb-1">A. 想在安靜的咖啡香裡塗鴉，聊聊最近的心情</span>
-            <span class="text-brand-muted text-[11px]">→ 推薦：咖啡廳曼陀羅彩繪與顏色分析 ($200)</span>
+            <span class="text-brand-muted text-[11px]">→ 推薦：曼陀羅紙上著色與色彩分析 ($200)</span>
           </button>
           <button onclick="answerQuiz('sports')" class="w-full text-left p-4 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition duration-200">
             <span class="font-bold block text-brand-charcoal mb-1">B. 想動動身體、流流汗，拋開工作煩惱</span>
-            <span class="text-brand-muted text-[11px]">→ 推薦：大同運動中心活力羽球 ($200)</span>
+            <span class="text-brand-muted text-[11px]">→ 推薦：大同運動中心活力羽球聚 ($200)</span>
           </button>
           <button onclick="answerQuiz('social')" class="w-full text-left p-4 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition duration-200">
             <span class="font-bold block text-brand-charcoal mb-1">C. 想不用動腦、笑一笑，喝杯咖啡玩遊戲</span>
-            <span class="text-brand-muted text-[11px]">→ 推薦：咖啡廳微醺/無負擔輕桌遊 ($200)</span>
-          </button>
-          <button onclick="answerQuiz('reading')" class="w-full text-left p-4 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition duration-200">
-            <span class="font-bold block text-brand-charcoal mb-1">D. 喜歡聽大家聊好書，但不想有壓力寫心得</span>
-            <span class="text-brand-muted text-[11px]">→ 推薦：免做功課・咖啡微讀書會 (自理低消)</span>
+            <span class="text-brand-muted text-[11px]">→ 推薦：咖啡廳輕桌遊小聚 ($200)</span>
           </button>
           <button onclick="answerQuiz('picnic')" class="w-full text-left p-4 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition duration-200">
-            <span class="font-bold block text-brand-charcoal mb-1">E. 想看陽光與綠草地，帶點點心去吹吹風</span>
+            <span class="font-bold block text-brand-charcoal mb-1">D. 想看陽光與綠草地，帶點點心去吹吹風</span>
             <span class="text-brand-muted text-[11px]">→ 推薦：草地微光野餐聊天會 (自備150元食物)</span>
           </button>
         </div>
@@ -405,7 +299,7 @@
   </div>
 
   <!-- ========================================== -->
-  <!-- 8. 活動微調抽屜 (Admin Drawer)             -->
+  <!-- 7. 活動微調抽屜 (Admin Drawer)             -->
   <!-- ========================================== -->
   <div id="adminDrawer" class="fixed inset-y-0 right-0 z-50 w-full sm:w-96 bg-white shadow-2xl border-l border-brand-border transform translate-x-full transition-transform duration-300 p-6 flex flex-col justify-between overflow-y-auto">
     <div>
@@ -434,16 +328,6 @@
           <label class="block font-semibold mb-1">活動地點：</label>
           <input type="text" id="adminEventLocation" class="w-full p-2.5 rounded-xl border border-brand-border text-xs">
         </div>
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="block font-semibold mb-1">總名額：</label>
-            <input type="number" id="adminTotalSeats" class="w-full p-2.5 rounded-xl border border-brand-border text-xs">
-          </div>
-          <div>
-            <label class="block font-semibold mb-1">已報名人數：</label>
-            <input type="number" id="adminReservedSeats" class="w-full p-2.5 rounded-xl border border-brand-border text-xs">
-          </div>
-        </div>
         <div>
           <label class="block font-semibold mb-1">費用標示文字：</label>
           <input type="text" id="adminEventPriceText" class="w-full p-2.5 rounded-xl border border-brand-border text-xs">
@@ -455,7 +339,7 @@
       <button onclick="saveAdminChanges()" class="w-full py-3 rounded-xl bg-brand-charcoal text-white font-medium text-xs hover:bg-brand-terracotta transition">
         套用並更新前台顯示
       </button>
-      <p class="text-[10px] text-stone-400 text-center mt-2">如需永久保存，可在 GitHub index.html 中更新 eventsData。</p>
+      <p class="text-[10px] text-stone-400 text-center mt-2">提示：永久改動請直接更新 GitHub index.html 中的 eventsData。</p>
     </div>
   </div>
 
@@ -466,7 +350,7 @@
   </div>
 
   <!-- ========================================== -->
-  <!-- 9. 頁尾 (Footer)                           -->
+  <!-- 8. 頁尾 (Footer)                           -->
   <!-- ========================================== -->
   <footer class="bg-brand-charcoal text-brand-sand py-12 text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -484,116 +368,143 @@
   </footer>
 
   <!-- ========================================== -->
-  <!-- 10. JAVASCRIPT 資料與互動邏輯              -->
+  <!-- 9. JAVASCRIPT 資料與表單跳轉邏輯            -->
   <!-- ========================================== -->
   <script>
+    // 羽球專屬 Google 表單網址
+    const BADMINTON_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdunvyzh2NTZ-V3nGM9_08f4jBo_zRFErxeThi7z3ZLoZLyfw/viewform?usp=dialog";
+    
+    // 其他活動通用之表單（若有其他專屬表單可在此替換）
+    const DEFAULT_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdunvyzh2NTZ-V3nGM9_08f4jBo_zRFErxeThi7z3ZLoZLyfw/viewform?usp=dialog";
+
     // ----------------------------------------------------
-    // 活動資料庫（已依你的需求全面更新）
+    // 活動資料庫（已依 10 月行事曆更新，使用 .png 圖片）
     // ----------------------------------------------------
     let eventsData = [
       {
-        id: "evt-01",
-        title: "咖啡香裡遇見曼陀羅・彩繪著色與色彩心情解碼",
+        id: "evt-mandala-1018",
+        title: "咖啡香裡遇見曼陀羅・紙上著色與色彩心情解碼",
         category: "mind",
-        date: "2026/10/17 (週六) 14:00 - 16:00",
-        isoDate: "20261017T140000/20261017T160000",
+        date: "2026/10/18 (週日) 14:30 - 16:30",
         location: "台北市中山區漫步咖啡小聚所 (近捷運中山站)",
-        price: 200,
+        leader: "覺文 + 小莉",
         priceText: "NT$ 200",
         feeNote: "含 150 元咖啡廳低消飲品一杯",
-        totalSeats: 10,
-        reservedSeats: 8,
         status: "urgent",
-        statusText: "席位倒數 2 席",
-        image: "mandala.png",
-        badge: "本週主打・放鬆著色",
-        description: "在舒服的咖啡廳裡，免自備任何紙筆畫具。挑選一張有共鳴的曼陀羅線稿，隨心上色。畫完後透過直覺顏色分析，輕鬆聊聊最近的心情與生活。",
-        highlights: ["不用帶紙筆！現場備妥專屬畫紙與色筆", "包含 150 元咖啡/飲品低消一杯", "主辦人趣味色彩直覺分析分享"],
-        schedule: ["14:00 點選飲品與自在入座", "14:15 曼陀羅直覺著色（放空療癒時光）", "15:15 色彩解碼與心情小交流", "16:00 暖心散會"]
+        statusText: "本週日登場",
+        image: "mandala.png", // 你的曼陀羅 png 圖檔
+        badge: "本週主打・紙上著色",
+        description: "在舒服的咖啡廳裡，免自備任何紙筆！現場提供專屬曼陀羅紙卡與色筆，在咖啡香中隨心塗上喜愛的顏色。完成後透過顏色分析，輕鬆聊聊最近的生活心境。",
+        highlights: ["不用帶紙筆！現場備妥曼陀羅紙卡與色筆", "包含 150 元店內低消飲品一杯", "現場由覺文與小莉帶領色彩心情交流"],
+        formUrl: DEFAULT_FORM_URL
       },
       {
-        id: "evt-02",
-        title: "週末晨光流流汗・大同運動中心活力羽球聚",
+        id: "evt-badminton-1024",
+        title: "週末晚間流流汗・大同運動中心活力羽球聚",
         category: "sports",
-        date: "2026/10/24 (週六) 10:00 - 12:00",
-        isoDate: "20261024T100000/20261024T120000",
-        location: "台北市大同運動中心 羽球場 (近捷運大橋頭站/民權西路站)",
-        price: 200,
+        date: "2026/10/24 (週六) 18:00 - 20:00",
+        location: "台北市大同運動中心 羽球場 (近捷運大橋頭/民權西路站)",
+        leader: "暖日運動組",
         priceText: "NT$ 200",
         feeNote: "含場地費與比賽級羽球",
-        totalSeats: 12,
-        reservedSeats: 9,
         status: "open",
         statusText: "新手友善熱烈報名中",
-        image: "badminton.png",
-        badge: "活力運動・新手不尷尬",
-        description: "專為羽球新手與久坐族準備的休閒局！不比球技、不計輸贏，純粹想流汗、揮拍、笑一笑。若無球拍可協助現場租借，歡迎單人報名。",
-        highlights: ["場地費分攤僅 200 元，提供球羽", "程度新手友善，大家輪流上場歡樂打", "運動中心設備齊全、更衣淋浴方便"],
-        schedule: ["10:00 集合動態暖身拉筋", "10:15 趣味輕鬆雙打分組揮拍", "11:45 緩和伸展與聊天合影"]
+        image: "badminton.png", // 你的羽球 png 圖檔
+        badge: "活力運動・新手友善",
+        description: "專為羽球新手與久坐族準備的週六晚間休閒局！不比球技、不計輸贏，純粹想流汗、揮拍、笑一笑。若無球拍可協助現場租借，歡迎單人報名。",
+        highlights: ["場地費分攤僅 200 元，提供球羽", "程度新手友善，大家輪流上場歡樂打", "點擊直接開啟 Google 表單填寫"],
+        formUrl: BADMINTON_FORM_URL
       },
       {
-        id: "evt-03",
-        title: "週五咖啡廳輕桌遊・免燒腦歡樂破冰小聚",
-        category: "social",
-        date: "2026/10/30 (週五) 19:00 - 21:00",
-        isoDate: "20261030T190000/20261030T210000",
-        location: "台北市大同區角落小洋房咖啡 (近捷運圓山站)",
-        price: 200,
-        priceText: "NT$ 200",
-        feeNote: "含 150 元店內飲品低消一杯",
-        totalSeats: 10,
-        reservedSeats: 7,
-        status: "open",
-        statusText: "開放報名",
-        image: "boardgame.png",
-        badge: "週五休閒・免帶東西",
-        description: "不用帶任何東西、不用怕不會玩！精選 5 分鐘就能上手的休閒社交派對桌遊，在咖啡香中自然聊開，卸下一週工作的疲憊。",
-        highlights: ["費用 200 元（包含 150 元低消飲品）", "主辦人負責講解規則，零難度無壓力", "認識新朋友的好選擇"]
-      },
-      {
-        id: "evt-04",
-        title: "免做功課微讀書會・聊一本你喜歡的書就好",
-        category: "reading",
-        date: "2026/11/01 (週日) 14:00 - 16:00",
-        isoDate: "20261101T140000/20261101T160000",
-        location: "台北市中山區日光溫暖咖啡館",
-        price: 0,
-        priceText: "自理低消",
-        feeNote: "免活動費，現場各自點一杯飲品即可",
-        totalSeats: 8,
-        reservedSeats: 5,
-        status: "open",
-        statusText: "溫暖聚會中",
-        image: "book.png",
-        badge: "知性交流・零功課壓力",
-        description: "不用買書、不用帶書、不用寫心得！只要在心裡想到一本你曾看過、覺得不錯的小說、漫畫、旅行書或實用書，點一杯自己想喝的咖啡，大家就像朋友聊天一樣隨興分享。",
-        highlights: ["免活動費！現場依個人喜好點飲品", "免帶書本、零功課負擔", "一人分享一個話題，輕鬆不冷場"]
-      },
-      {
-        id: "evt-05",
+        id: "evt-picnic-1025",
         title: "草地微光野餐分享日・帶150元喜歡的食物來聊天",
         category: "picnic",
-        date: "2026/11/07 (週六) 14:30 - 17:00",
-        isoDate: "20261107T143000/20261107T170000",
+        date: "2026/10/25 (週日) 14:00 - 17:00",
         location: "台北市大安森林公園（大草坪生態池旁樹蔭下）",
-        price: 0,
+        leader: "小高",
         priceText: "自備點心",
-        feeNote: "免活動費，每人帶約150元喜愛的食物分享",
-        totalSeats: 12,
-        reservedSeats: 8,
+        feeNote: "免活動費，每人帶約150元喜愛食物分享",
         status: "open",
         statusText: "即將成團",
-        image: "picnic.png",
+        image: "picnic.png", // 你的野餐 png 圖檔
         badge: "自然草地・分享美好",
-        description: "秋風涼涼的午後最適合草地發呆！免活動費，主辦人會準備大野餐墊，請大家各自帶一份約 150 元喜歡的小點心或麵包飲料，一起在大樹下一邊吃一邊悠哉聊天。",
-        highlights: ["免活動費用，自由度超高", "主辦人備有野餐墊與環保餐具", "曬曬太陽吹吹風，舒服充個電"]
+        description: "秋風涼涼的午後最適合草地發呆！免活動費，主辦人小高會準備大野餐墊，請大家各自帶一份約 150 元喜歡的小點心或麵包飲料，一起在大樹下悠哉聊天吹風。",
+        highlights: ["免活動費用，自由度超高", "負責人小高備妥野餐墊與環保餐具", "曬曬太陽吹吹風，舒服充個電"],
+        formUrl: DEFAULT_FORM_URL
+      },
+      {
+        id: "evt-badminton-1031",
+        title: "萬聖節前夕揮拍・大同運動中心活力羽球聚",
+        category: "sports",
+        date: "2026/10/31 (週六) 18:00 - 20:00",
+        location: "台北市大同運動中心 羽球場",
+        leader: "暖日運動組",
+        priceText: "NT$ 200",
+        feeNote: "含場地費與羽球",
+        status: "open",
+        statusText: "開放報名",
+        image: "badminton.png",
+        badge: "週末運動・紓壓流汗",
+        description: "十月最後一週的週六晚間羽球！運動中心設備完善、淋浴方便，輕鬆打完羽球神清氣爽迎接週末夜。",
+        highlights: ["200 元包含場地與羽球", "新手無壓力歡樂輪替打法", "透過專屬 Google 表單即刻登記"],
+        formUrl: BADMINTON_FORM_URL
+      },
+      {
+        id: "evt-mandala-1101",
+        title: "十一月心靈慢時光・曼陀羅紙上著色與色彩解碼",
+        category: "mind",
+        date: "2026/11/01 (週日) 14:30 - 16:30",
+        location: "台北市中山區漫步咖啡小聚所",
+        leader: "覺文 + 小莉",
+        priceText: "NT$ 200",
+        feeNote: "含 150 元咖啡廳低消飲品一杯",
+        status: "open",
+        statusText: "開放報名",
+        image: "mandala.png",
+        badge: "知性心靈・放鬆療癒",
+        description: "十一月第一天的溫暖相遇。挑選一張有共鳴的曼陀羅線稿，在咖啡香中享受專注著色的寧靜心流，並透過色彩聊聊生活願望。",
+        highlights: ["免帶工具，現場提供畫紙色筆", "含 150 元店內飲品一杯", "負責人覺文與小莉溫暖帶領"],
+        formUrl: DEFAULT_FORM_URL
+      },
+      {
+        id: "evt-boardgame-1101",
+        title: "週日午後咖啡廳輕桌遊・免燒腦歡樂破冰聚",
+        category: "social",
+        date: "2026/11/01 (週日) 15:30 - 18:30",
+        location: "台北市大同區角落小洋房咖啡 (近捷運圓山站)",
+        leader: "玹瓔",
+        priceText: "NT$ 200",
+        feeNote: "含 150 元店內飲品低消一杯",
+        status: "open",
+        statusText: "開放報名",
+        image: "boardgame.png", // 你的桌遊 png 圖檔
+        badge: "週日休閒・免帶道具",
+        description: "不用帶任何東西、不用怕不會玩！精選 5 分鐘就能上手的休閒社交派對桌遊，由負責人玹瓔親切帶玩，在笑聲與咖啡香中自然聊開。",
+        highlights: ["費用 200 元（包含 150 元低消飲品）", "負責人玹瓔專人講解規則，零難度", "認識生活圈新朋友的好選擇"],
+        formUrl: DEFAULT_FORM_URL
+      },
+      {
+        id: "evt-reading",
+        title: "免做功課微讀書會・聊一本你喜歡的書就好",
+        category: "reading",
+        date: "常態小聚 (依群組公告預約)",
+        location: "台北市中山區日光溫暖咖啡館",
+        leader: "暖日漫聚小幫手",
+        priceText: "自理低消",
+        feeNote: "免活動費，現場各自點一杯飲品即可",
+        status: "open",
+        statusText: "溫暖交流",
+        image: "book.png", // 你的讀書會 png 圖檔
+        badge: "知性交流・零功課壓力",
+        description: "不用買書、不用帶書、不用寫心得！只要在心裡想到一本你曾看過、覺得不錯的小說、漫畫、旅行書或實用書，點一杯自己想喝的咖啡，大家就像朋友聊天一樣隨興分享。",
+        highlights: ["免活動費！現場依個人喜好點飲品", "免帶實體書、零功課負擔", "聊一本喜歡的書就有話題"],
+        formUrl: DEFAULT_FORM_URL
       }
     ];
 
     let currentCategory = 'all';
     let currentStatus = 'all';
     let currentKeyword = '';
-    let selectedEvent = null;
 
     // ----------------------------------------------------
     // 管理員暗門邏輯
@@ -634,7 +545,16 @@
     }
 
     // ----------------------------------------------------
-    // 頁面渲染邏輯
+    // 報名按鈕跳轉至 Google 表單
+    // ----------------------------------------------------
+    function openRegisterModal(eventId) {
+      const ev = eventsData.find(e => e.id === eventId);
+      const targetUrl = (ev && ev.formUrl) ? ev.formUrl : DEFAULT_FORM_URL;
+      window.open(targetUrl, "_blank");
+    }
+
+    // ----------------------------------------------------
+    // 頁面渲染邏輯（無進度條）
     // ----------------------------------------------------
     document.addEventListener("DOMContentLoaded", () => {
       renderFeaturedEvent();
@@ -647,17 +567,15 @@
       }
     });
 
-    // 1. 渲染本週主打活動
+    // 1. 渲染本週主打活動（以 10/18 曼陀羅為主打）
     function renderFeaturedEvent() {
       const featured = eventsData[0];
-      const percent = Math.min(100, Math.round((featured.reservedSeats / featured.totalSeats) * 100));
-      const remaining = featured.totalSeats - featured.reservedSeats;
 
       const html = `
         <div class="bg-white rounded-3xl border border-brand-border overflow-hidden shadow-soft hover:shadow-card-hover transition-all duration-300 grid grid-cols-1 lg:grid-cols-12">
           <!-- 左側主圖 -->
-          <div class="lg:col-span-7 relative min-h-[280px] lg:min-h-[400px] overflow-hidden group">
-            <img src="${featured.image}" alt="${featured.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="lg:col-span-7 relative min-h-[280px] lg:min-h-[380px] overflow-hidden group">
+            <img src="${featured.image}" alt="${featured.title}" onerror="this.src='https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1000&q=80'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <div class="absolute top-5 left-5">
               <span class="px-4 py-1.5 rounded-full bg-brand-terracotta text-white text-xs font-semibold tracking-wider shadow-sm">
@@ -665,12 +583,12 @@
               </span>
             </div>
             <div class="absolute bottom-5 left-5 right-5 text-white">
-              <span class="text-xs font-light text-brand-sand block mb-1">本週推薦 • 輕鬆好入門</span>
+              <span class="text-xs font-light text-brand-sand block mb-1">本週即將登場 • 負責人：${featured.leader}</span>
               <p class="font-serif text-xl sm:text-2xl font-bold leading-snug">${featured.title}</p>
             </div>
           </div>
 
-          <!-- 右側詳細資訊 -->
+          <!-- 右側詳細資訊 (無進度條) -->
           <div class="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between bg-white">
             <div>
               <div class="flex items-center justify-between text-xs text-brand-muted mb-4 pb-3 border-b border-brand-border">
@@ -681,24 +599,13 @@
                 ${featured.description}
               </p>
               
-              <div class="space-y-2 mb-6">
+              <div class="space-y-2.5 mb-6">
                 ${featured.highlights.map(h => `
                   <div class="flex items-center gap-2 text-xs text-brand-charcoal font-medium">
                     <span class="w-1.5 h-1.5 rounded-full bg-brand-sage"></span>
                     <span>${h}</span>
                   </div>
                 `).join('')}
-              </div>
-
-              <!-- 席次進度 -->
-              <div class="p-4 rounded-2xl bg-brand-canvas mb-6 border border-brand-border/60">
-                <div class="flex justify-between text-xs mb-2">
-                  <span class="font-medium text-brand-charcoal">報名席位</span>
-                  <span class="text-brand-terracotta font-bold">已報名 ${featured.reservedSeats} 人 (剩 ${remaining} 席)</span>
-                </div>
-                <div class="w-full bg-stone-200 h-2.5 rounded-full overflow-hidden">
-                  <div class="bg-brand-terracotta h-full rounded-full transition-all duration-700" style="width: ${percent}%"></div>
-                </div>
               </div>
             </div>
 
@@ -709,7 +616,7 @@
                 <span class="font-serif text-2xl font-bold text-brand-terracotta">${featured.priceText}</span>
               </div>
               <button onclick="openRegisterModal('${featured.id}')" class="px-7 py-3.5 rounded-2xl bg-brand-terracotta text-white font-medium hover:bg-brand-terracotta-dark transition-all duration-300 text-xs shadow-md">
-                搶先預約席位 →
+                前往表單報名 →
               </button>
             </div>
           </div>
@@ -718,7 +625,7 @@
       document.getElementById("featuredCardContainer").innerHTML = html;
     }
 
-    // 2. 渲染活動卡片列表
+    // 2. 渲染活動卡片列表（無進度條）
     function renderEvents() {
       const grid = document.getElementById("eventsGrid");
       const filtered = eventsData.filter(item => {
@@ -727,7 +634,8 @@
         const matchesKeyword = currentKeyword === '' || 
           item.title.toLowerCase().includes(currentKeyword.toLowerCase()) ||
           item.description.toLowerCase().includes(currentKeyword.toLowerCase()) ||
-          item.location.toLowerCase().includes(currentKeyword.toLowerCase());
+          item.location.toLowerCase().includes(currentKeyword.toLowerCase()) ||
+          item.leader.toLowerCase().includes(currentKeyword.toLowerCase());
         return matchesCategory && matchesStatus && matchesKeyword;
       });
 
@@ -742,18 +650,15 @@
       }
 
       grid.innerHTML = filtered.map(item => {
-        const percent = Math.min(100, Math.round((item.reservedSeats / item.totalSeats) * 100));
-        const remaining = item.totalSeats - item.reservedSeats;
-        
         let statusBadgeColor = "bg-stone-100 text-stone-700";
-        if (item.status === 'urgent') statusBadgeColor = "bg-amber-100 text-amber-800";
+        if (item.status === 'urgent') statusBadgeColor = "bg-rose-100 text-rose-800";
         if (item.status === 'open') statusBadgeColor = "bg-emerald-100 text-emerald-800";
 
         return `
           <div class="bg-white rounded-3xl border border-brand-border overflow-hidden shadow-soft hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div class="relative h-48 overflow-hidden">
-                <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <img src="${item.image}" alt="${item.title}" onerror="this.src='https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 <div class="absolute top-4 left-4">
                   <span class="px-3 py-1 rounded-full text-[11px] font-semibold backdrop-blur-md bg-white/90 text-brand-charcoal shadow-2xs">
                     ${item.badge}
@@ -767,10 +672,13 @@
               </div>
 
               <div class="p-6">
-                <span class="text-[11px] text-brand-muted flex items-center gap-1.5 mb-2 font-light">
-                  <svg class="w-3.5 h-3.5 text-brand-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                  ${item.date}
-                </span>
+                <div class="flex items-center justify-between text-[11px] text-brand-muted mb-2 font-light">
+                  <span class="flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-brand-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    ${item.date}
+                  </span>
+                  <span class="text-stone-400">負責人：${item.leader}</span>
+                </div>
 
                 <h3 class="font-serif text-lg font-bold text-brand-charcoal mb-2 leading-snug group-hover:text-brand-terracotta transition">
                   ${item.title}
@@ -780,20 +688,10 @@
                   ${item.description}
                 </p>
 
-                <p class="text-[11px] text-stone-500 flex items-center gap-1 mb-4">
+                <p class="text-[11px] text-stone-500 flex items-center gap-1 mb-2">
                   <span>📍</span>
                   <span class="truncate">${item.location}</span>
                 </p>
-
-                <div class="bg-brand-canvas p-3 rounded-2xl border border-brand-border/40 mb-2">
-                  <div class="flex justify-between text-[11px] mb-1.5">
-                    <span class="text-stone-500">席位進度</span>
-                    <span class="font-semibold text-brand-charcoal">${item.reservedSeats} / ${item.totalSeats} 人 (剩 ${remaining} 席)</span>
-                  </div>
-                  <div class="w-full bg-stone-200 h-1.5 rounded-full overflow-hidden">
-                    <div class="bg-brand-sage h-full rounded-full" style="width: ${percent}%"></div>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -842,68 +740,6 @@
     }
 
     // ----------------------------------------------------
-    // 報名彈窗邏輯
-    // ----------------------------------------------------
-    function openRegisterModal(eventId) {
-      selectedEvent = eventsData.find(e => e.id === eventId);
-      if (!selectedEvent) return;
-
-      document.getElementById("modalEventTitle").innerText = selectedEvent.title;
-      document.getElementById("modalEventSubtitle").innerHTML = `
-        <span>🗓️ ${selectedEvent.date}</span> • <span>📍 ${selectedEvent.location.split(' ')[0]}</span>
-      `;
-      document.getElementById("modalFeeDesc").innerText = selectedEvent.feeNote;
-      document.getElementById("regSeats").value = "1";
-      calculateTotal();
-
-      document.getElementById("modalFormView").classList.remove("hidden");
-      document.getElementById("modalSuccessView").classList.add("hidden");
-      document.getElementById("registerModal").classList.remove("hidden");
-    }
-
-    function closeRegisterModal() {
-      document.getElementById("registerModal").classList.add("hidden");
-    }
-
-    function calculateTotal() {
-      if (!selectedEvent) return;
-      const count = parseInt(document.getElementById("regSeats").value);
-      if (selectedEvent.price === 0) {
-        document.getElementById("modalTotalPrice").innerText = selectedEvent.priceText;
-      } else {
-        const total = count * selectedEvent.price;
-        document.getElementById("modalTotalPrice").innerText = `NT$ ${total}`;
-      }
-    }
-
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      const count = parseInt(document.getElementById("regSeats").value);
-      
-      selectedEvent.reservedSeats += count;
-      renderFeaturedEvent();
-      renderEvents();
-
-      document.getElementById("succEventName").innerText = selectedEvent.title;
-      document.getElementById("succSeats").innerText = `${count} 位`;
-      document.getElementById("succBookingId").innerText = `#LUM-${Math.floor(1000 + Math.random() * 9000)}`;
-
-      const calTitle = encodeURIComponent(selectedEvent.title);
-      const calLoc = encodeURIComponent(selectedEvent.location);
-      const calDesc = encodeURIComponent(`暖日漫聚小提醒：${selectedEvent.feeNote}。${selectedEvent.description}`);
-      const calUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${calTitle}&dates=${selectedEvent.isoDate}&details=${calDesc}&location=${calLoc}`;
-      document.getElementById("addToCalendarBtn").href = calUrl;
-
-      document.getElementById("modalFormView").classList.add("hidden");
-      document.getElementById("modalSuccessView").classList.remove("hidden");
-      showToast("🎉 報名已成功送出！");
-    }
-
-    function openLineDirect() {
-      window.open("https://line.me/R/ti/p/@lumiere_living", "_blank");
-    }
-
-    // ----------------------------------------------------
     // 能量測驗
     // ----------------------------------------------------
     function openQuizModal() {
@@ -920,10 +756,9 @@
     function answerQuiz(cat) {
       recommendedCat = cat;
       const config = {
-        mind: { emoji: "🎨", title: "咖啡廳曼陀羅彩繪與顏色分析", desc: "在咖啡香氣中安靜著色，不用帶任何工具，透過顏色聊聊近期心境，非常適合想安靜放鬆的你。" },
-        sports: { emoji: "🏸", title: "大同運動中心晨光活力羽球", desc: "不看球技的歡樂羽球局！200 元含場地與球，流一身汗洗個澡，整個人神清氣爽。" },
-        social: { emoji: "🎲", title: "週五咖啡廳輕桌遊", desc: "200 元含一杯 150 元飲品，免帶道具、規則簡單，在笑聲中輕鬆度過週五夜晚。" },
-        reading: { emoji: "📚", title: "免做功課・咖啡微讀書會", desc: "免活動費、自理低消飲品。不用帶實體書也不用交心得，分享一本喜歡的書就能聊得很開心。" },
+        mind: { emoji: "🎨", title: "曼陀羅紙上著色與色彩心情解碼", desc: "在咖啡香氣中安靜著色，不用帶任何工具，透過顏色聊聊近期心境，非常適合想安靜放鬆的你。" },
+        sports: { emoji: "🏸", title: "大同運動中心活力羽球聚", desc: "不看球技的歡樂羽球局！200 元含場地與球，流一身汗洗個澡，整個人神清氣爽。" },
+        social: { emoji: "🎲", title: "咖啡廳輕桌遊小聚", desc: "200 元含一杯 150 元飲品，免帶道具、規則簡單，在笑聲中輕鬆度過午後。" },
         picnic: { emoji: "🧺", title: "草地微光野餐聊天會", desc: "免活動費，各自帶 150 元喜愛的小點心，在公園草地樹蔭下享受自然微風與陽光。" }
       };
 
@@ -965,8 +800,6 @@
       document.getElementById("adminEventTitle").value = ev.title;
       document.getElementById("adminEventDate").value = ev.date;
       document.getElementById("adminEventLocation").value = ev.location;
-      document.getElementById("adminTotalSeats").value = ev.totalSeats;
-      document.getElementById("adminReservedSeats").value = ev.reservedSeats;
       document.getElementById("adminEventPriceText").value = ev.priceText;
     }
 
@@ -978,8 +811,6 @@
       ev.title = document.getElementById("adminEventTitle").value;
       ev.date = document.getElementById("adminEventDate").value;
       ev.location = document.getElementById("adminEventLocation").value;
-      ev.totalSeats = parseInt(document.getElementById("adminTotalSeats").value);
-      ev.reservedSeats = parseInt(document.getElementById("adminReservedSeats").value);
       ev.priceText = document.getElementById("adminEventPriceText").value;
 
       renderFeaturedEvent();
