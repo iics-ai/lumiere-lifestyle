@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>暖日漫聚 Lumière Living ｜ 質感生活體驗與微學習社群</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Noto Serif TC & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: {
+              50: '#FDFCF7',
+              100: '#F9F6F0',
+              200: '#F2EDE4',
+              300: '#E7DEC8',
+            },
+            terracotta: {
+              100: '#FAEDE8',
+              300: '#E8B298',
+              500: '#D97D64',
+              600: '#C46850',
+            },
+            sage: {
+              50: '#F4F7F4',
+              100: '#E3EBE4',
+              300: '#A9C2AD',
+              500: '#6E8B75',
+              600: '#56725D',
+            },
+            morandi: {
+              dark: '#2E2B2A',
+              muted: '#766F6A',
+              border: '#E8E2D9',
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'soft': '0 8px 30px rgba(78, 64, 53, 0.05)',
+            'float': '0 16px 40px rgba(110, 139, 117, 0.12)',
+            'card-hover': '0 20px 45px rgba(217, 125, 100, 0.12)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FDFCF7;
+      color: #2E2B2A;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-serif-tc {
+      font-family: 'Noto Serif TC', serif;
+    }
+    /* 自訂滾動條 */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F9F6F0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D9C8B4;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #A9C2AD;
+    }
+    /* 玻璃擬態與柔光背景 */
+    .glass-nav {
+      background: rgba(253, 252, 247, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    /* 隱藏滾動條但保持滾動 */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<body class="selection:bg-terracotta-100 selection:text-terracotta-600">
+
+  <!-- 頂部導航 -->
+  <header class="fixed top-0 left-0 right-0 z-40 glass-nav border-b border-morandi-border/60 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- 品牌識別 -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full bg-sage-100 flex items-center justify-center text-sage-600 group-hover:bg-terracotta-100 group-hover:text-terracotta-600 transition-colors duration-300">
+          <i class="fa-solid fa-leaf text-lg"></i>
+        </div>
+        <div>
+          <span class="block font-serif-tc font-bold text-xl tracking-wider text-morandi-dark">暖日漫聚</span>
+          <span class="block text-[10px] tracking-widest text-morandi-muted uppercase">Lumière Living Club</span>
+        </div>
+      </a>
+
+      <!-- 快捷入口 -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-morandi-muted">
+        <a href="#featured-section" class="hover:text-terracotta-500 transition-colors">本週主打</a>
+        <a href="#events-section" class="hover:text-terracotta-500 transition-colors">探索活動</a>
+        <a href="#about-philosophy" class="hover:text-terracotta-500 transition-colors">選會初心</a>
+        <a href="#faq-section" class="hover:text-terracotta-500 transition-colors">常見問題</a>
+      </nav>
+
+      <!-- 右側功能：能量測驗與收藏清單 -->
+      <div class="flex items-center gap-3">
+        <button onclick="openQuizModal()" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sage-50 text-sage-600 hover:bg-sage-100 text-xs font-medium border border-sage-300/40 transition-all duration-200">
+          <i class="fa-regular fa-compass"></i>
+          <span>本週能量選課測驗</span>
+        </button>
+        <button onclick="openAdminDrawer()" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full bg-white text-morandi-dark hover:bg-cream-100 border border-morandi-border text-xs font-medium transition-all" title="編輯或新增活動資料">
+          <i class="fa-solid fa-pen-to-square text-terracotta-500"></i>
+          <span class="hidden sm:inline">活動管理與修改</span>
+        </button>
+        <button onclick="scrollToEvents()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-morandi-dark text-white hover:bg-terracotta-500 text-xs sm:text-sm font-medium shadow-sm transition-all duration-300">
+          <span>報名專區</span>
+          <i class="fa-solid fa-arrow-down text-xs"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero 視覺首頁區 -->
+  <section class="pt-32 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-cream-100 via-cream-200/50 to-sage-50 border border-morandi-border/60 p-6 sm:p-12 lg:p-16">
+      
+      <!-- 柔光裝飾球 -->
+      <div class="absolute -top-16 -right-16 w-80 h-80 bg-terracotta-100/60 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-sage-100/60 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 border border-morandi-border/80 shadow-xs mb-6 text-xs text-morandi-muted">
+          <span class="w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span>
+          <span>十月秋意生活策展・週末輕社交專題</span>
+        </div>
+
+        <h1 class="font-serif-tc text-3xl sm:text-5xl lg:text-[3.25rem] font-bold text-morandi-dark leading-tight tracking-tight mb-6">
+          在日常與理想生活之間，<br class="hidden sm:inline">
+          留給自己一場<span class="text-terracotta-500 underline decoration-terracotta-300/50 underline-offset-8">溫柔的相遇</span>。
+        </h1>
+
+        <p class="text-morandi-muted text-base sm:text-lg leading-relaxed mb-8 max-w-2xl font-light">
+          專為注重生活質感、追求身心放鬆的都會靈魂設計。不喧嘩的微學習、零壓力的輕社交、親手烹調的溫暖與大自然的深呼吸——在這裡，卸下標籤，好好當自己。
+        </p>
+
+        <!-- 氛圍標籤列 -->
+        <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm text-morandi-dark mb-8">
+          <span class="px-3.5 py-1.5 rounded-full bg-white/70 border border-cream-300"># 65% 都會女性心靈友善</span>
+          <span class="px-3.5 py-1.5 rounded-full bg-white/70 border border-cream-300"># 單人報名高達8成不用尷尬</span>
+          <span class="px-3.5 py-1.5 rounded-full bg-white/70 border border-cream-300"># 12-16人精緻小班制</span>
+          <span class="px-3.5 py-1.5 rounded-full bg-white/70 border border-cream-300"># 零強迫推銷社群</span>
+        </div>
+
+        <!-- 核心行動按鈕組 -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <a href="#featured-section" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-terracotta-500 text-white font-medium text-sm hover:bg-terracotta-600 shadow-soft hover:shadow-card-hover transition-all duration-300">
+            <i class="fa-solid fa-sparkles text-amber-200"></i>
+            <span>查看本週主打推薦活動</span>
+          </a>
+          <button onclick="openQuizModal()" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-morandi-dark border border-morandi-border hover:bg-cream-100 font-medium text-sm transition-all duration-200">
+            <i class="fa-solid fa-wand-magic-sparkles text-sage-500"></i>
+            <span>30秒測測本週需要什麼能量？</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 本週主打推薦（Featured Spotlight） -->
+  <section id="featured-section" class="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-terracotta-500">
+          <i class="fa-solid fa-fire-flame-curved"></i>
+          <span>Upcoming Flagship ・ 本週注目焦點</span>
+        </div>
+        <h2 class="font-serif-tc text-2xl sm:text-3xl font-bold text-morandi-dark mt-1">本週最近主打推薦</h2>
+      </div>
+      <span class="text-xs text-morandi-muted hidden sm:inline-block">即將於本週六登場・席次進入倒數</span>
+    </div>
+
+    <!-- 主打卡片 (水平雜誌大版型) -->
+    <div class="bg-white rounded-3xl border border-morandi-border overflow-hidden shadow-soft hover:shadow-float transition-all duration-300 group">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+        <!-- 圖片區塊 -->
+        <div class="lg:col-span-5 relative min-h-[300px] lg:min-h-[440px] overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1200&q=80" 
+            alt="頌缽心靈療癒與曼陀羅手繪" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-morandi-dark/70 via-transparent to-transparent lg:hidden"></div>
+          
+          <div class="absolute top-4 left-4 flex flex-col gap-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-terracotta-500 text-white text-xs font-semibold shadow-sm">
+              <i class="fa-regular fa-star"></i> 本週熱門首推
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 text-morandi-dark backdrop-blur text-xs font-medium">
+              🎨 曼陀羅與心靈
+            </span>
+          </div>
+
+          <div class="absolute bottom-4 left-4 right-4 text-white lg:hidden">
+            <p class="text-xs text-cream-200">本週六 14:00 - 17:00</p>
+            <h3 class="font-serif-tc text-xl font-bold">秋日微光・頌缽心靈療癒與曼陀羅能量手繪</h3>
+          </div>
+        </div>
+
+        <!-- 內容區塊 -->
+        <div class="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between bg-cream-50/40">
+          <div>
+            <div class="hidden lg:flex items-center gap-3 text-xs text-morandi-muted mb-3">
+              <span class="px-2.5 py-1 rounded-md bg-sage-100 text-sage-600 font-medium">近期待辦活動</span>
+              <span><i class="fa-regular fa-calendar mr-1"></i> 2026 / 10 / 17（週六）14:00 - 17:00</span>
+              <span><i class="fa-solid fa-location-dot mr-1"></i> 台北市松山區民生東路五段（日光私宅）</span>
+            </div>
+
+            <h3 class="hidden lg:block font-serif-tc text-2xl sm:text-3xl font-bold text-morandi-dark leading-snug mb-4">
+              秋日微光・頌缽心靈療癒與曼陀羅能量手繪工作坊
+            </h3>
+
+            <p class="text-morandi-muted text-sm sm:text-base leading-relaxed mb-6 font-light">
+              換掉一整週高速運轉的腦袋，讓 432Hz 尼泊爾手工老頌缽的聲波低鳴沉浸包圍。搭配無須繪畫基礎的「曼陀羅直覺點繪」，在色彩與幾何旋轉間，梳理情緒雜質，找回最清澈寧靜的自己。課後附贈精選有機洋甘菊舒壓草本茶點。
+            </p>
+
+            <!-- 亮點特點標籤 -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+              <div class="p-3 rounded-2xl bg-white border border-morandi-border/70">
+                <div class="text-xs text-morandi-muted mb-0.5">專業帶領</div>
+                <div class="text-sm font-semibold text-morandi-dark">國際認證音療師</div>
+              </div>
+              <div class="p-3 rounded-2xl bg-white border border-morandi-border/70">
+                <div class="text-xs text-morandi-muted mb-0.5">器材提供</div>
+                <div class="text-sm font-semibold text-morandi-dark">全套繪具與畫布</div>
+              </div>
+              <div class="p-3 rounded-2xl bg-white border border-morandi-border/70">
+                <div class="text-xs text-morandi-muted mb-0.5">貼心配備</div>
+                <div class="text-sm font-semibold text-morandi-dark">暖心茶點與私房茶</div>
+              </div>
+            </div>
+
+            <!-- 名額動態進度條 -->
+            <div class="bg-white p-4 rounded-2xl border border-morandi-border/80 mb-6">
+              <div class="flex items-center justify-between text-xs mb-2">
+                <span class="font-medium text-morandi-dark flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-terracotta-500 animate-ping"></span>
+                  目前報名進度：僅剩最後 <span class="text-terracotta-600 font-bold text-sm">3</span> 席
+                </span>
+                <span class="text-morandi-muted">限額 14 位 / 已滿 78%</span>
+              </div>
+              <div class="w-full bg-cream-200 h-2.5 rounded-full overflow-hidden">
+                <div class="bg-gradient-to-r from-sage-500 to-terracotta-500 h-full rounded-full transition-all duration-1000" style="width: 78%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 價格與報名按鈕 -->
+          <div class="pt-4 border-t border-morandi-border/60 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+            <div>
+              <span class="text-xs text-morandi-muted line-through mr-2">原價 NT$ 2,200</span>
+              <div class="flex items-baseline gap-1">
+                <span class="text-xs font-semibold text-terracotta-600">秋光早鳥價</span>
+                <span class="text-2xl font-bold font-serif-tc text-morandi-dark">NT$ 1,680</span>
+                <span class="text-xs text-morandi-muted">/ 人（含器材茶點）</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <button onclick="openDetailModal('event-1')" class="px-5 py-3 rounded-full border border-morandi-border bg-white text-morandi-dark hover:bg-cream-100 text-xs sm:text-sm font-medium transition-colors">
+                活動簡介
+              </button>
+              <button onclick="openRegisterModal('event-1')" class="flex-1 sm:flex-initial px-7 py-3 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white text-xs sm:text-sm font-medium shadow-soft hover:shadow-card-hover transition-all">
+                立即搶先報名
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 活動瀏覽與多維度過濾區 -->
+  <section id="events-section" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="font-serif-tc text-2xl sm:text-4xl font-bold text-morandi-dark mb-3">探索更多質感生活提案</h2>
+      <p class="text-morandi-muted text-sm sm:text-base font-light">
+        從飲食、身心療癒到戶外微運動，為週末挑選專屬於你的心靈能量。
+      </p>
+    </div>
+
+    <!-- 搜尋與篩選控制器 -->
+    <div class="bg-white p-4 sm:p-6 rounded-3xl border border-morandi-border shadow-soft mb-10 space-y-4">
+      
+      <!-- 關鍵字搜尋與狀態過濾 -->
+      <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+        <!-- 搜尋輸入框 -->
+        <div class="relative flex-1">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-morandi-muted/60 text-sm"></i>
+          <input 
+            type="text" 
+            id="searchInput" 
+            oninput="handleSearch()"
+            placeholder="搜尋活動關鍵字，例如：料理、羽球、讀書會、頌缽、野餐..." 
+            class="w-full pl-11 pr-4 py-3 bg-cream-50/70 border border-morandi-border rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-sage-500/30 focus:border-sage-500 transition-all placeholder:text-morandi-muted/60"
+          >
+        </div>
+
+        <!-- 狀態過濾下拉選單 -->
+        <div class="flex items-center gap-3">
+          <select 
+            id="statusFilter" 
+            onchange="handleFilterChange()"
+            class="w-full md:w-auto px-4 py-3 bg-cream-50/70 border border-morandi-border rounded-2xl text-xs sm:text-sm font-medium text-morandi-dark focus:outline-none focus:ring-2 focus:ring-sage-500/30 transition-all"
+          >
+            <option value="all">所有報名狀態</option>
+            <option value="open">熱烈報名中</option>
+            <option value="urgent">即將額滿 (席次 &lt; 5)</option>
+            <option value="earlybird">享有早鳥優惠</option>
+          </select>
+
+          <!-- 重置按鈕 -->
+          <button 
+            onclick="resetFilters()" 
+            class="px-3.5 py-3 rounded-2xl border border-morandi-border text-morandi-muted hover:text-morandi-dark hover:bg-cream-100 text-xs transition-colors flex items-center gap-1.5"
+            title="重設條件"
+          >
+            <i class="fa-solid fa-rotate-left"></i>
+            <span class="hidden sm:inline">重置</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 分類標籤快速切換（水平滑動） -->
+      <div class="pt-2 border-t border-morandi-border/60">
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1" id="categoryTagContainer">
+          <!-- JS 動態生成或手動定義 -->
+          <button onclick="setCategory('all')" class="category-btn active-category px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-200">
+            全部體驗 (<span id="count-all">0</span>)
+          </button>
+          <button onclick="setCategory('food')" class="category-btn px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-200">
+            🥗 品味輕食與手作
+          </button>
+          <button onclick="setCategory('sport')" class="category-btn px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-200">
+            🏸 活力羽球與輕運動
+          </button>
+          <button onclick="setCategory('mind')" class="category-btn px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-200">
+            🎨 曼陀羅與心靈
+          </button>
+          <button onclick="setCategory('book')" class="category-btn px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-200">
+            📚 質感微讀書會
+          </button>
+          <button onclick="setCategory('boardgame')" class="category-btn px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-200">
+            🎲 歡樂微社交桌遊
+          </button>
+          <button onclick="setCategory('picnic')" class="category-btn px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-200">
+            🧺 週末草地野餐
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 活動卡片列表網格 -->
+    <div id="eventsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <!-- 透過 JavaScript 渲染所有精緻生活卡片 -->
+    </div>
+
+    <!-- 無搜尋結果提示 -->
+    <div id="emptyState" class="hidden text-center py-16 px-4 bg-white rounded-3xl border border-morandi-border">
+      <div class="w-16 h-16 rounded-full bg-cream-200 text-morandi-muted mx-auto flex items-center justify-center text-2xl mb-4">
+        <i class="fa-regular fa-compass"></i>
+      </div>
+      <h3 class="font-serif-tc text-lg font-bold text-morandi-dark mb-1">找不到符合條件的活動</h3>
+      <p class="text-morandi-muted text-xs sm:text-sm mb-6">試試看不同的關鍵字，或者瀏覽其他分類吧！</p>
+      <button onclick="resetFilters()" class="px-5 py-2.5 rounded-full bg-sage-500 text-white text-xs font-medium hover:bg-sage-600 transition-colors">
+        顯示所有生活體驗
+      </button>
+    </div>
+  </section>
+
+  <!-- 品牌初心與品質保證 -->
+  <section id="about-philosophy" class="py-16 bg-cream-100/60 border-y border-morandi-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-semibold uppercase tracking-widest text-terracotta-500">Why Lumière Living</span>
+        <h2 class="font-serif-tc text-2xl sm:text-3xl font-bold text-morandi-dark mt-2 mb-3">為什麼都會女性與青年喜歡聚在這裡？</h2>
+        <p class="text-morandi-muted text-xs sm:text-sm">我們相信，一場優質的活動不需要高亢的破冰遊戲，只需要真誠的空氣與同頻率的呼吸。</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-3xl border border-morandi-border shadow-xs hover:-translate-y-1 transition-transform duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-sage-100 text-sage-600 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-mug-saucer"></i>
+          </div>
+          <h3 class="font-serif-tc font-bold text-base text-morandi-dark mb-2">零壓力自然破冰</h3>
+          <p class="text-xs text-morandi-muted leading-relaxed">
+            獨創「茶歇微社交機制」，沒有尷尬的自我推銷，透過共同手作或體驗，自然找到頻率相同的好朋友。
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl border border-morandi-border shadow-xs hover:-translate-y-1 transition-transform duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-terracotta-100 text-terracotta-500 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-person-walking-luggage"></i>
+          </div>
+          <h3 class="font-serif-tc font-bold text-base text-morandi-dark mb-2">獨行者超友善</h3>
+          <p class="text-xs text-morandi-muted leading-relaxed">
+            超過 75% 的夥伴都是一個人報名參加。現場主理人親切隨和，從踏進門的那一刻起就感到被細心照顧。
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl border border-morandi-border shadow-xs hover:-translate-y-1 transition-transform duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-cream-300/40 text-morandi-dark flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <h3 class="font-serif-tc font-bold text-base text-morandi-dark mb-2">精選師資與私房空間</h3>
+          <p class="text-xs text-morandi-muted leading-relaxed">
+            嚴選日光藝室、手作私廚與安靜綠地，拒絕吵雜商業場所，保證每一次相遇都是美學享受。
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl border border-morandi-border shadow-xs hover:-translate-y-1 transition-transform duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-sage-100 text-sage-600 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-shield-heart"></i>
+          </div>
+          <h3 class="font-serif-tc font-bold text-base text-morandi-dark mb-2">清楚安心退改保證</h3>
+          <p class="text-xs text-morandi-muted leading-relaxed">
+            活動前 4 天無條件保留改期或全額轉讓，臨時加班或身體微恙也不必擔心權益受損。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 常見問題 FAQ -->
+  <section id="faq-section" class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    <div class="text-center mb-10">
+      <h2 class="font-serif-tc text-2xl sm:text-3xl font-bold text-morandi-dark mb-2">參加前的溫柔叮嚀</h2>
+      <p class="text-morandi-muted text-xs sm:text-sm">把你的猶豫交給我們，帶著放鬆的心情前來即可</p>
+    </div>
+
+    <div class="space-y-4">
+      <!-- FAQ 1 -->
+      <div class="bg-white rounded-2xl border border-morandi-border overflow-hidden">
+        <button onclick="toggleFaq(1)" class="w-full p-5 text-left flex items-center justify-between font-serif-tc font-semibold text-morandi-dark text-sm sm:text-base">
+          <span>Q1. 我平常比較內向（I人），一個人報名會覺得尷尬或插不上話嗎？</span>
+          <i id="faq-icon-1" class="fa-solid fa-chevron-down text-xs text-morandi-muted transition-transform duration-300"></i>
+        </button>
+        <div id="faq-ans-1" class="hidden px-5 pb-5 text-xs sm:text-sm text-morandi-muted leading-relaxed border-t border-morandi-border/40 pt-3">
+          完全請放心！暖日漫聚每場活動有 75% 以上的學員都是獨自前來。我們的活動流程設計「重在沉浸體驗與輕柔交流」，不強迫大聲自我介紹，也不會有尷尬的社交考核，大家都在專注體驗的氛圍裡自然熟絡。
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="bg-white rounded-2xl border border-morandi-border overflow-hidden">
+        <button onclick="toggleFaq(2)" class="w-full p-5 text-left flex items-center justify-between font-serif-tc font-semibold text-morandi-dark text-sm sm:text-base">
+          <span>Q2. 報名後如果臨時遇到加班或私事，可以退費或轉讓嗎？</span>
+          <i id="faq-icon-2" class="fa-solid fa-chevron-down text-xs text-morandi-muted transition-transform duration-300"></i>
+        </button>
+        <div id="faq-ans-2" class="hidden px-5 pb-5 text-xs sm:text-sm text-morandi-muted leading-relaxed border-t border-morandi-border/40 pt-3">
+          活動日（含）前 4 天告知客服，我們提供 100% 席次保留（可折抵下期活動）或全額轉讓給親友參加。若在 3 天內因突發狀況無法前來，亦可協助將當天材料或教材完整寄送給您。
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="bg-white rounded-2xl border border-morandi-border overflow-hidden">
+        <button onclick="toggleFaq(3)" class="w-full p-5 text-left flex items-center justify-between font-serif-tc font-semibold text-morandi-dark text-sm sm:text-base">
+          <span>Q3. 料理或戶外活動需要自己準備什麼裝備或圍裙嗎？</span>
+          <i id="faq-icon-3" class="fa-solid fa-chevron-down text-xs text-morandi-muted transition-transform duration-300"></i>
+        </button>
+        <div id="faq-ans-3" class="hidden px-5 pb-5 text-xs sm:text-sm text-morandi-muted leading-relaxed border-t border-morandi-border/40 pt-3">
+          我們堅持「輕便出行」原則！手作料理會備妥全套亞麻圍裙、刀具與食材；羽球場次備有新手訓練球拍與專業球；野餐活動則提供防水風格野餐墊與保溫器具。您只需穿著舒適透氣的服裝前來即可！
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer class="bg-cream-100 border-t border-morandi-border/80 pt-12 pb-16 text-morandi-muted text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-morandi-border/60">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-sage-500 text-white flex items-center justify-center">
+            <i class="fa-solid fa-leaf text-sm"></i>
+          </div>
+          <div>
+            <span class="font-serif-tc font-bold text-base text-morandi-dark">暖日漫聚 Lumière Living</span>
+            <p class="text-[11px] text-morandi-muted">溫柔生活・微學習・社群共聚所</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-terracotta-500 flex items-center gap-1.5"><i class="fa-brands fa-instagram text-base"></i> <span>Instagram</span></a>
+          <a href="#" class="hover:text-terracotta-500 flex items-center gap-1.5"><i class="fa-brands fa-line text-base text-emerald-600"></i> <span>官方 LINE 秘書</span></a>
+          <a href="#" class="hover:text-terracotta-500 flex items-center gap-1.5"><i class="fa-regular fa-envelope text-base"></i> <span>體驗合作洽詢</span></a>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
+        <p>© 2026 Lumière Living Club. All rights reserved. 留給生活一點留白與浪漫。</p>
+        <div class="flex gap-4">
+          <a href="#" class="hover:underline">隱私權保護宣告</a>
+          <a href="#" class="hover:underline">體驗服務約定條款</a>
+          <a href="#" class="hover:underline">退款改期規則</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 沉浸式報名彈窗（Smooth Registration Modal） -->
+  <div id="registerModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-morandi-dark/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="registerModalContent" class="bg-white w-full max-w-lg rounded-3xl border border-morandi-border shadow-float overflow-hidden transform scale-95 transition-all duration-300 max-h-[92vh] flex flex-col">
+      
+      <!-- 彈窗頂部 -->
+      <div class="px-6 py-4 bg-cream-50 border-b border-morandi-border/60 flex items-center justify-between">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-terracotta-500">Quick Reservation</span>
+          <h3 class="font-serif-tc font-bold text-lg text-morandi-dark">預約生活體驗</h3>
+        </div>
+        <button onclick="closeRegisterModal()" class="w-8 h-8 rounded-full bg-white border border-morandi-border flex items-center justify-center text-morandi-muted hover:text-morandi-dark hover:bg-cream-100 transition-colors">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <!-- 彈窗主體表單（可滾動） -->
+      <form id="registerForm" onsubmit="handleRegistrationSubmit(event)" class="p-6 overflow-y-auto space-y-4 text-xs sm:text-sm">
+        
+        <!-- 當前選取的活動資訊提示卡 -->
+        <div class="p-3.5 rounded-2xl bg-cream-100/70 border border-morandi-border/80 flex items-center gap-3">
+          <img id="modalEventImg" src="" alt="Event thumbnail" class="w-16 h-16 rounded-xl object-cover">
+          <div class="flex-1 min-w-0">
+            <h4 id="modalEventTitle" class="font-serif-tc font-bold text-morandi-dark text-sm truncate">活動名稱</h4>
+            <div id="modalEventDate" class="text-morandi-muted text-xs mt-0.5"><i class="fa-regular fa-clock mr-1"></i>活動時間</div>
+            <div id="modalEventPrice" class="text-terracotta-600 font-bold text-xs mt-0.5">NT$ 0</div>
+          </div>
+        </div>
+
+        <!-- 姓名 -->
+        <div>
+          <label class="block font-medium text-morandi-dark mb-1">您的姓名 / 暱稱 <span class="text-terracotta-500">*</span></label>
+          <input 
+            type="text" 
+            id="regName" 
+            required 
+            placeholder="請輸入平常怎麼稱呼您（例如：思妤 / Kelly）" 
+            class="w-full px-4 py-2.5 rounded-xl bg-cream-50/50 border border-morandi-border focus:ring-2 focus:ring-sage-500/30 focus:border-sage-500 focus:outline-none transition-all"
+          >
+        </div>
+
+        <!-- 手機號碼與 LINE ID 雙欄 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-medium text-morandi-dark mb-1">手機號碼 <span class="text-terracotta-500">*</span></label>
+            <input 
+              type="tel" 
+              id="regPhone" 
+              required 
+              placeholder="0912-345-678" 
+              class="w-full px-4 py-2.5 rounded-xl bg-cream-50/50 border border-morandi-border focus:ring-2 focus:ring-sage-500/30 focus:border-sage-500 focus:outline-none transition-all"
+            >
+          </div>
+          <div>
+            <label class="block font-medium text-morandi-dark mb-1">LINE ID <span class="text-terracotta-500">*</span></label>
+            <input 
+              type="text" 
+              id="regLine" 
+              required 
+              placeholder="用於行前通知與加入群組" 
+              class="w-full px-4 py-2.5 rounded-xl bg-cream-50/50 border border-morandi-border focus:ring-2 focus:ring-sage-500/30 focus:border-sage-500 focus:outline-none transition-all"
+            >
+          </div>
+        </div>
+
+        <!-- 報名人數與飲食偏好 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-medium text-morandi-dark mb-1">參加席次</label>
+            <select 
+              id="regCount" 
+              onchange="updateTotalFee()"
+              class="w-full px-4 py-2.5 rounded-xl bg-cream-50/50 border border-morandi-border focus:ring-2 focus:ring-sage-500/30 focus:border-sage-500 focus:outline-none transition-all"
+            >
+              <option value="1">1 位（獨自享受・結交新朋友）</option>
+              <option value="2">2 位（邀請好友 / 伴侶同行）</option>
+              <option value="3">3 位小聚</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-medium text-morandi-dark mb-1">飲食偏好 / 備註</label>
+            <select 
+              id="regDiet" 
+              class="w-full px-4 py-2.5 rounded-xl bg-cream-50/50 border border-morandi-border focus:ring-2 focus:ring-sage-500/30 focus:border-sage-500 focus:outline-none transition-all"
+            >
+              <option value="none">葷素不忌 / 無特殊飲食限制</option>
+              <option value="vegetarian">蛋奶素 / 蔬食</option>
+              <option value="vegan">純全素</option>
+              <option value="gluten-free">避免麩質（低敏需求）</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 期待與想說的話 -->
+        <div>
+          <label class="block font-medium text-morandi-dark mb-1">有什麼想跟主理人先說的嗎？（選填）</label>
+          <textarea 
+            id="regNotes" 
+            rows="2" 
+            placeholder="例如：第一次參加有點緊張、希望認識同樣喜歡烘焙的朋友..." 
+            class="w-full px-4 py-2 rounded-xl bg-cream-50/50 border border-morandi-border focus:ring-2 focus:ring-sage-500/30 focus:border-sage-500 focus:outline-none transition-all"
+          ></textarea>
+        </div>
+
+        <!-- 應付金額合計提示 -->
+        <div class="p-3 bg-sage-50/80 rounded-xl border border-sage-100 flex items-center justify-between text-xs">
+          <span class="text-morandi-muted">合計預估金額：</span>
+          <span id="regTotalAmount" class="text-base font-bold text-terracotta-600 font-serif-tc">NT$ 0</span>
+        </div>
+
+        <!-- 條款同意勾選 -->
+        <div class="flex items-start gap-2 pt-1 text-xs text-morandi-muted">
+          <input type="checkbox" id="regTerms" required class="mt-0.5 accent-sage-600">
+          <label for="regTerms" class="cursor-pointer">
+            我已理解暖日漫聚小班制活動之<span class="text-morandi-dark font-medium underline">退改規範</span>，並同意主理人透過 LINE 或手機聯繫行前確認資訊。
+          </label>
+        </div>
+
+        <!-- 提交按鈕 -->
+        <div class="pt-2">
+          <button 
+            type="submit" 
+            id="submitBtn" 
+            class="w-full py-3.5 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-medium text-sm shadow-soft hover:shadow-card-hover transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <span>確認預約席次</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 報名成功狀態回饋彈窗 (Success State Modal) -->
+  <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-morandi-dark/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="successModalContent" class="bg-white w-full max-w-md rounded-3xl border border-morandi-border shadow-float p-6 sm:p-8 text-center transform scale-95 transition-all duration-300">
+      
+      <div class="w-16 h-16 rounded-full bg-sage-100 text-sage-600 mx-auto flex items-center justify-center text-2xl mb-4 animate-bounce">
+        <i class="fa-solid fa-check"></i>
+      </div>
+
+      <span class="text-xs font-semibold tracking-wider text-sage-600 uppercase">Reservation Confirmed</span>
+      <h3 class="font-serif-tc text-2xl font-bold text-morandi-dark mt-1 mb-2">席次已為您溫柔保留！</h3>
+      
+      <p class="text-morandi-muted text-xs sm:text-sm leading-relaxed mb-6 font-light">
+        感謝您留給自己這段時光。<br>
+        活動確認信已發送，我們已經為您安排好一切細節，期待本週末見面！
+      </p>
+
+      <div class="p-4 rounded-2xl bg-cream-50 border border-morandi-border/80 text-left mb-6 text-xs space-y-1.5">
+        <div class="flex justify-between">
+          <span class="text-morandi-muted">報名編號：</span>
+          <span id="succOrderNo" class="font-mono font-bold text-morandi-dark">LUM-202610-88</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-morandi-muted">預約活動：</span>
+          <span id="succEventTitle" class="font-medium text-morandi-dark truncate max-w-[200px]">秋日頌缽療癒</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-morandi-muted">預約姓名：</span>
+          <span id="succName" class="font-medium text-morandi-dark">思妤</span>
+        </div>
+      </div>
+
+      <!-- 行動按鈕：Google 日曆 & 加入 LINE 群 -->
+      <div class="space-y-3">
+        <button 
+          onclick="addToGoogleCalendar()" 
+          class="w-full py-3 px-4 rounded-full bg-white border border-morandi-border hover:bg-cream-100 text-morandi-dark text-xs sm:text-sm font-medium flex items-center justify-center gap-2 transition-colors"
+        >
+          <i class="fa-solid fa-calendar-plus text-terracotta-500"></i>
+          <span>一鍵加到 Google 行事曆</span>
+        </button>
+
+        <button 
+          onclick="joinLineGroup()" 
+          class="w-full py-3 px-4 rounded-full bg-[#06C755] hover:bg-[#05b34c] text-white text-xs sm:text-sm font-medium flex items-center justify-center gap-2 transition-colors shadow-xs"
+        >
+          <i class="fa-brands fa-line text-lg"></i>
+          <span>加入本場次專屬微聊 LINE 群</span>
+        </button>
+      </div>
+
+      <button onclick="closeSuccessModal()" class="mt-6 text-xs text-morandi-muted hover:text-morandi-dark underline">
+        返回首頁繼續瀏覽
+      </button>
+    </div>
+  </div>
+
+  <!-- 能量選課測驗小助手 (Interactive Energy Quiz Modal) -->
+  <div id="quizModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-morandi-dark/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="quizModalContent" class="bg-white w-full max-w-lg rounded-3xl border border-morandi-border shadow-float overflow-hidden transform scale-95 transition-all duration-300 p-6 sm:p-8">
+      
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full bg-terracotta-100 text-terracotta-500 flex items-center justify-center text-sm">
+            <i class="fa-solid fa-sparkles"></i>
+          </div>
+          <div>
+            <h3 class="font-serif-tc font-bold text-lg text-morandi-dark">本週心靈能量測驗</h3>
+            <p class="text-[11px] text-morandi-muted">回答 2 個直覺題目，為你推薦最契合的週末處方</p>
+          </div>
+        </div>
+        <button onclick="closeQuizModal()" class="w-7 h-7 rounded-full bg-cream-100 text-morandi-muted hover:text-morandi-dark flex items-center justify-center text-xs">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div id="quizStepContainer" class="space-y-6">
+        <!-- 題目 1 -->
+        <div>
+          <span class="text-xs font-semibold text-terracotta-500">QUESTION 1 / 2</span>
+          <p class="font-serif-tc text-sm sm:text-base font-bold text-morandi-dark mt-1 mb-3">你最近最常感受到的身心狀態是？</p>
+          <div class="space-y-2">
+            <label class="flex items-center gap-3 p-3 rounded-2xl border border-morandi-border hover:bg-cream-50 cursor-pointer transition-colors">
+              <input type="radio" name="quizQ1" value="tired" checked class="accent-terracotta-500">
+              <span class="text-xs sm:text-sm text-morandi-dark">腦袋停不下來、資訊超載，需要徹底放空與平靜</span>
+            </label>
+            <label class="flex items-center gap-3 p-3 rounded-2xl border border-morandi-border hover:bg-cream-50 cursor-pointer transition-colors">
+              <input type="radio" name="quizQ1" value="sedentary" class="accent-terracotta-500">
+              <span class="text-xs sm:text-sm text-morandi-dark">辦公室坐太久、肩頸僵硬，想痛快流汗舒展筋骨</span>
+            </label>
+            <label class="flex items-center gap-3 p-3 rounded-2xl border border-morandi-border hover:bg-cream-50 cursor-pointer transition-colors">
+              <input type="radio" name="quizQ1" value="lonely" class="accent-terracotta-500">
+              <span class="text-xs sm:text-sm text-morandi-dark">生活圈太固定，渴望跟溫暖有趣的人聊聊天、吃頓好料</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 題目 2 -->
+        <div>
+          <span class="text-xs font-semibold text-terracotta-500">QUESTION 2 / 2</span>
+          <p class="font-serif-tc text-sm sm:text-base font-bold text-morandi-dark mt-1 mb-3">你期待本週末結束時，心裡帶走什麼？</p>
+          <div class="space-y-2">
+            <label class="flex items-center gap-3 p-3 rounded-2xl border border-morandi-border hover:bg-cream-50 cursor-pointer transition-colors">
+              <input type="radio" name="quizQ2" value="art" checked class="accent-terracotta-500">
+              <span class="text-xs sm:text-sm text-morandi-dark">親手完成的一件作品，或是沉靜平和的滿足感</span>
+            </label>
+            <label class="flex items-center gap-3 p-3 rounded-2xl border border-morandi-border hover:bg-cream-50 cursor-pointer transition-colors">
+              <input type="radio" name="quizQ2" value="energy" class="accent-terracotta-500">
+              <span class="text-xs sm:text-sm text-morandi-dark">大汗淋漓後的輕快代謝感與舒暢多巴胺</span>
+            </label>
+            <label class="flex items-center gap-3 p-3 rounded-2xl border border-morandi-border hover:bg-cream-50 cursor-pointer transition-colors">
+              <input type="radio" name="quizQ2" value="knowledge" class="accent-terracotta-500">
+              <span class="text-xs sm:text-sm text-morandi-dark">一份美味的健康私廚便當，或是一本翻開的新思維</span>
+            </label>
+          </div>
+        </div>
+
+        <button onclick="calculateQuizResult()" class="w-full py-3.5 rounded-full bg-sage-500 hover:bg-sage-600 text-white font-medium text-xs sm:text-sm transition-all shadow-soft">
+          解析我的本週能量推薦 ✨
+        </button>
+      </div>
+
+      <!-- 測驗結果顯示區 -->
+      <div id="quizResultContainer" class="hidden text-center py-4 space-y-4">
+        <div class="w-14 h-14 rounded-full bg-sage-100 text-sage-600 mx-auto flex items-center justify-center text-xl">
+          <i class="fa-solid fa-seedling"></i>
+        </div>
+        <div>
+          <span class="text-xs text-terracotta-500 font-semibold uppercase tracking-wider">Your Match</span>
+          <h4 id="quizMatchTitle" class="font-serif-tc text-lg font-bold text-morandi-dark mt-1">秋日微光・頌缽心靈療癒與曼陀羅手繪</h4>
+          <p id="quizMatchDesc" class="text-xs text-morandi-muted mt-2 leading-relaxed max-w-sm mx-auto">
+            測驗顯示您目前急需「身心靈慢速重置」，沉浸的頌缽聲頻與專注的手繪最能撫平您的疲憊。
+          </p>
+        </div>
+
+        <div class="pt-2 flex flex-col sm:flex-row gap-2">
+          <button id="quizActionBtn" class="flex-1 py-3 rounded-full bg-terracotta-500 text-white text-xs font-medium hover:bg-terracotta-600 transition-colors">
+            立即預約這場體驗
+          </button>
+          <button onclick="closeQuizModal()" class="py-3 px-5 rounded-full border border-morandi-border text-xs text-morandi-muted hover:bg-cream-100">
+            再逛逛其他
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 活動詳情快速預覽彈窗 (Detail Modal) -->
+  <div id="detailModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-morandi-dark/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="detailModalContent" class="bg-white w-full max-w-2xl rounded-3xl border border-morandi-border shadow-float overflow-hidden transform scale-95 transition-all duration-300 max-h-[90vh] flex flex-col">
+      <div class="relative h-56 sm:h-72 overflow-hidden">
+        <img id="detailImg" src="" alt="Detail Banner" class="w-full h-full object-cover">
+        <button onclick="closeDetailModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-morandi-dark/50 text-white hover:bg-morandi-dark flex items-center justify-center transition-colors">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="absolute bottom-4 left-4">
+          <span id="detailCategoryBadge" class="px-3 py-1 rounded-full bg-white/95 text-morandi-dark text-xs font-semibold backdrop-blur">類別</span>
+        </div>
+      </div>
+
+      <div class="p-6 sm:p-8 overflow-y-auto space-y-5">
+        <div>
+          <h3 id="detailTitle" class="font-serif-tc text-2xl font-bold text-morandi-dark leading-snug">活動名稱</h3>
+          <div class="flex flex-wrap items-center gap-4 text-xs text-morandi-muted mt-2">
+            <span id="detailTime"><i class="fa-regular fa-clock mr-1 text-sage-600"></i>時間</span>
+            <span id="detailLocation"><i class="fa-solid fa-location-dot mr-1 text-terracotta-500"></i>地點</span>
+            <span id="detailCapacity"><i class="fa-solid fa-user-group mr-1 text-morandi-muted"></i>名額限制</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-serif-tc font-bold text-sm text-morandi-dark mb-2">活動理念與體驗內容</h4>
+          <p id="detailDescription" class="text-xs sm:text-sm text-morandi-muted leading-relaxed font-light">說明文字...</p>
+        </div>
+
+        <!-- 流程安排 -->
+        <div class="p-4 rounded-2xl bg-cream-50 border border-morandi-border/60">
+          <h4 class="font-serif-tc font-bold text-xs text-morandi-dark mb-2 flex items-center gap-2">
+            <i class="fa-regular fa-calendar-check text-sage-600"></i>
+            <span>活動流程安排（總長約 2.5 ~ 3 小時）</span>
+          </h4>
+          <ul id="detailSchedule" class="text-xs text-morandi-muted space-y-1.5 list-disc list-inside">
+            <li>13:50 - 14:00 暖身迎賓、有機洋甘菊舒壓草本茶享用</li>
+            <li>14:00 - 15:10 主題體驗與主理人引導互動</li>
+            <li>15:10 - 16:30 手作交流、心得共鳴與自由輕社交時光</li>
+          </ul>
+        </div>
+
+        <div class="pt-2 flex items-center justify-between border-t border-morandi-border/60">
+          <div>
+            <span class="text-xs text-morandi-muted block">體驗費用</span>
+            <span id="detailPrice" class="text-xl font-bold font-serif-tc text-terracotta-600">NT$ 0</span>
+          </div>
+          <button id="detailRegisterActionBtn" class="px-8 py-3 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-medium text-xs sm:text-sm shadow-soft transition-all">
+            立即搶訂名額
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 浮動 Toast 輕提示 -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-full bg-morandi-dark text-white text-xs sm:text-sm shadow-float flex items-center gap-2.5 opacity-0 pointer-events-none transition-all duration-300">
+    <i id="toastIcon" class="fa-solid fa-check text-sage-300"></i>
+    <span id="toastMessage">已成功執行操作</span>
+  </div>
+
+  <!-- 後台活動資料快速編輯抽屜（Admin Edit Drawer） -->
+  <div id="adminDrawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-white border-l border-morandi-border shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+    <div class="p-5 border-b border-morandi-border/60 bg-cream-50 flex items-center justify-between">
+      <div>
+        <span class="text-[10px] font-bold text-terracotta-600 uppercase tracking-wider">Content Management</span>
+        <h3 class="font-serif-tc font-bold text-lg text-morandi-dark">修改或新增活動細節</h3>
+      </div>
+      <button onclick="closeAdminDrawer()" class="w-8 h-8 rounded-full bg-white border border-morandi-border text-morandi-muted hover:text-morandi-dark flex items-center justify-center">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="p-5 overflow-y-auto flex-1 space-y-4 text-xs">
+      <div class="p-3 bg-sage-50 rounded-2xl border border-sage-100 text-morandi-muted leading-relaxed">
+        💡 <strong>修改小撇步：</strong><br>
+        1. 程式碼修改：在原始碼最下方的 <code class="bg-white px-1 py-0.5 rounded text-terracotta-600 font-mono">const eventsData = [...]</code> 替換。<br>
+        2. 即時預覽：也可以直接在下方選單挑選活動，直接修改文字與票價，按下儲存立即反映在畫面上！
+      </div>
+
+      <div>
+        <label class="block font-medium text-morandi-dark mb-1">選擇要修改的活動</label>
+        <select id="adminSelectEvent" onchange="loadEventIntoAdminForm()" class="w-full p-2.5 bg-cream-50 border border-morandi-border rounded-xl">
+          <!-- 動態載入 -->
+        </select>
+      </div>
+
+      <div>
+        <label class="block font-medium text-morandi-dark mb-1">活動完整名稱 (Title)</label>
+        <input type="text" id="editTitle" class="w-full p-2.5 bg-cream-50 border border-morandi-border rounded-xl">
+      </div>
+
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label class="block font-medium text-morandi-dark mb-1">活動日期 (Date)</label>
+          <input type="text" id="editDate" placeholder="例如：2026/10/24（六）" class="w-full p-2.5 bg-cream-50 border border-morandi-border rounded-xl">
+        </div>
+        <div>
+          <label class="block font-medium text-morandi-dark mb-1">活動時間 (Time)</label>
+          <input type="text" id="editTime" placeholder="例如：14:00 - 17:00" class="w-full p-2.5 bg-cream-50 border border-morandi-border rounded-xl">
+        </div>
+      </div>
+
+      <div>
+        <label class="block font-medium text-morandi-dark mb-1">完整活動地點 (Location)</label>
+        <input type="text" id="editLocation" class="w-full p-2.5 bg-cream-50 border border-morandi-border rounded-xl">
+      </div>
+
+      <div class="grid grid-cols-3 gap-2">
+        <div>
+          <label class="block font-medium text-morandi-dark mb-1">體驗費用 (NT$)</label>
+          <input type="number" id="editPrice" class="w-full p-2.5 bg-cream-50 border border-morandi-border rounded-xl">
+        </div>
+        <div>
+          <label class="block font-medium text-morandi-dark mb-1">總名額數</label>
+          <input type="number" id="editTotalSeats" class="w-full p-2.5 bg-cream-50 border border-morandi-border rounded-xl">
+        </div>
+        <div>
+          <label class="block font-medium text-morandi-dark mb-1">已報名人數</label>
+          <input type="number" id="editReservedSeats" class="w-full p-2.5 bg-cream-50 border border-morandi-border rounded-xl">
+        </div>
+      </div>
+
+      <div>
+        <label class="block font-medium text-morandi-dark mb-1">封面圖片網址 (Image URL)</label>
+        <input type="text" id="editImage" class="w-full p-2.5 bg-cream-50 border border-morandi-border rounded-xl">
+      </div>
+
+      <div>
+        <label class="block font-medium text-morandi-dark mb-1">簡短活動描述 (Summary)</label>
+        <textarea id="editSummary" rows="3" class="w-full p-2 bg-cream-50 border border-morandi-border rounded-xl"></textarea>
+      </div>
+
+      <div>
+        <label class="block font-medium text-morandi-dark mb-1">活動流程 (每行一個步驟)</label>
+        <textarea id="editSchedule" rows="4" class="w-full p-2 bg-cream-50 border border-morandi-border rounded-xl font-mono text-[11px]"></textarea>
+      </div>
+
+      <div class="pt-2">
+        <button onclick="saveAdminEventChanges()" class="w-full py-3 bg-terracotta-500 hover:bg-terracotta-600 text-white rounded-full font-medium shadow-sm transition-colors">
+          更新活動內容並重新渲染
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* 
+     ========================================================================
+     📌 【活動細節修改指南 (Activity Content Guide)】
+     如果您想永久修改活動，請直接搜尋並編輯下方 `eventsData` 物件陣列：
+     
+     - id: 活動唯一識別碼（勿重複）
+     - title: 活動完整名稱
+     - category: 分類代碼 ('mind'心靈, 'food'美食, 'sport'運動, 'boardgame'桌遊, 'book'讀書會, 'picnic'野餐)
+     - categoryName: 畫面上顯示的分類文字
+     - categoryEmoji: 分類圖示 (如 🎨, 🥗, 🏸)
+     - date / time: 活動日期與具體時段
+     - location: 完整地址（含私廚或教室名稱）
+     - shortLocation: 卡片封面上的簡短地區標籤（如：台北・大安區）
+     - price / originalPrice: 特惠價與原價
+     - totalSeats / reservedSeats: 總席次與已預約人數（自動計算進度條與剩餘席次）
+     - image: Unsplash 或您自己的圖片外部連結
+     - summary: 卡片與彈窗中顯示的核心簡介
+     - schedule: 陣列格式的各階段活動流程
+     ========================================================================
+    */
+    const eventsData = [
+      {
+        id: 'event-1',
+        title: '秋日微光・頌缽心靈療癒與曼陀羅手繪',
+        category: 'mind',
+        categoryName: '曼陀羅與心靈',
+        categoryEmoji: '🎨',
+        date: '2026/10/17（本週六）',
+        time: '14:00 - 17:00',
+        location: '台北市松山區民生東路五段（日光私宅藝室）',
+        shortLocation: '台北・松山區',
+        price: 1680,
+        originalPrice: 2200,
+        totalSeats: 14,
+        reservedSeats: 11,
+        status: 'urgent',
+        isEarlyBird: true,
+        image: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80',
+        summary: '以 432Hz 尼泊爾老頌缽深層洗滌身心，搭配直覺曼陀羅點繪。無須繪畫基礎，在色彩旋轉中安放疲憊的心。附有機草本茶點。',
+        schedule: [
+          '13:50 - 14:00 暖身迎賓、品飲有機洋甘菊舒壓草本茶',
+          '14:00 - 15:00 頌缽音療靜心包圍、深層呼吸調節練習',
+          '15:00 - 16:30 曼陀羅幾何直覺手繪、色彩情緒沉澱',
+          '16:30 - 17:00 作品分享與主理人溫暖共鳴'
+        ]
+      },
+      {
+        id: 'event-2',
+        title: '無負擔旬味廚房：低卡地中海溫沙拉與手作全麥佛卡夏',
+        category: 'food',
+        categoryName: '品味輕食與手作',
+        categoryEmoji: '🥗',
+        date: '2026/10/18（週日）',
+        time: '11:00 - 14:00',
+        location: '台北市大安區信義路四段（慢活綠能私廚）',
+        shortLocation: '台北・大安區',
+        price: 1850,
+        originalPrice: 2400,
+        totalSeats: 12,
+        reservedSeats: 8,
+        status: 'open',
+        isEarlyBird: true,
+        image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80',
+        summary: '由認證生活料理師帶領，從低溫慢烤時蔬、自製特級初榨橄欖油油醋醬，到香草佛卡夏麵團發酵，吃得優雅健康且零熱量負擔。',
+        schedule: [
+          '10:50 - 11:00 穿上亞麻圍裙、食材特性與油品導讀',
+          '11:00 - 12:30 手揉香草佛卡夏麵團與溫沙拉烤盤實作',
+          '12:30 - 13:45 圍桌共享健康午宴、搭配白葡萄氣泡醋飲',
+          '13:45 - 14:00 便當保鮮盒裝盛自製麵包回家分享'
+        ]
+      },
+      {
+        id: 'event-3',
+        title: '晨光微汗・輕熟男女歡樂羽球輕運動交流會',
+        category: 'sport',
+        categoryName: '活力羽球與輕運動',
+        categoryEmoji: '🏸',
+        date: '2026/10/24（六）',
+        time: '09:30 - 12:00',
+        location: '新北市板橋體育館（冷氣專業木質地板場地）',
+        shortLocation: '新北・板橋區',
+        price: 550,
+        originalPrice: 700,
+        totalSeats: 16,
+        reservedSeats: 14,
+        status: 'urgent',
+        isEarlyBird: false,
+        image: 'https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80',
+        summary: '專為新手、休閒打球者設計的微運動時光！不論球技高低，我們以歡樂雙打循環賽為主，現場提供頂級球具，流汗充電無負擔。',
+        schedule: [
+          '09:20 - 09:30 報到集合、動態關節暖身操',
+          '09:30 - 10:15 握拍與平球基本功友善互動暖身',
+          '10:15 - 11:45 歡樂積分抽籤雙打循環交流賽',
+          '11:45 - 12:00 運動後筋膜放鬆收操、運動飲料補充'
+        ]
+      },
+      {
+        id: 'event-4',
+        title: '深秋週五微醺沙龍：心理學策略桌遊與風格對話',
+        category: 'boardgame',
+        categoryName: '歡樂微社交桌遊',
+        categoryEmoji: '🎲',
+        date: '2026/10/23（五）',
+        time: '19:00 - 21:30',
+        location: '台北市中正區羅斯福路三段（溫州街老宅書閣）',
+        shortLocation: '台北・中正區',
+        price: 680,
+        originalPrice: 850,
+        totalSeats: 12,
+        reservedSeats: 6,
+        status: 'open',
+        isEarlyBird: true,
+        image: 'https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=800&q=80',
+        summary: '告別幼稚搶奪桌遊！精選《阿瓦隆》、《機密代號》、《大搜查》等需要心理推敲與幽默合作的高智商微社交遊戲，微醺中認識同好。',
+        schedule: [
+          '18:50 - 19:00 點選迎賓特調茶飲 / 紅白酒小酌',
+          '19:00 - 19:30 輕鬆破冰桌遊暖身、遊戲規則專人詳解',
+          '19:30 - 21:15 沉浸式情境推理解謎、團隊思維默契交鋒',
+          '21:15 - 21:30 復盤交流、自在聊天與互留聯絡方式'
+        ]
+      },
+      {
+        id: 'event-5',
+        title: '大人的午後避難所：不孤讀・《原子習慣》與生活實踐讀書會',
+        category: 'book',
+        categoryName: '質感微讀書會',
+        categoryEmoji: '📚',
+        date: '2026/10/25（日）',
+        time: '14:30 - 17:00',
+        location: '台北市中山區赤峰街（日式天井獨立書店）',
+        shortLocation: '台北・中山區',
+        price: 520,
+        originalPrice: 650,
+        totalSeats: 10,
+        reservedSeats: 7,
+        status: 'open',
+        isEarlyBird: false,
+        image: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=80',
+        summary: '不用讀完整本書也能來！導讀人提取核心心法，探討 25~45 歲都會男女如何建立不疲憊的微習慣。附手沖莊園咖啡或日式焙茶一杯。',
+        schedule: [
+          '14:20 - 14:30 入座、挑選今日莊園手沖豆款',
+          '14:30 - 15:15 主持人精華提煉：如何設計無痛的生活系統',
+          '15:15 - 16:30 分組觀點卡牌探討：我的戒斷與微重建日常',
+          '16:30 - 17:00 寫下一張「本月承諾小卡」帶回日常'
+        ]
+      },
+      {
+        id: 'event-6',
+        title: '暮光草地・法式亞麻風格野餐與自製無酒精香檳調飲',
+        category: 'picnic',
+        categoryName: '週末草地野餐',
+        categoryEmoji: '🧺',
+        date: '2026/10/31（六）',
+        time: '15:00 - 18:00',
+        location: '台北市內湖區大湖公園（臨湖落羽松綠茵草坪）',
+        shortLocation: '台北・內湖區',
+        price: 1100,
+        originalPrice: 1500,
+        totalSeats: 16,
+        reservedSeats: 15,
+        status: 'urgent',
+        isEarlyBird: true,
+        image: 'https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?auto=format&fit=crop&w=800&q=80',
+        summary: '雙手空空就能出席的美學野餐！現場架設復古木箱、亞麻編織墊與鮮花。品嚐主廚冷肉乳酪盤、手調草本果漾 mocktail，沉浸秋季夕陽。',
+        schedule: [
+          '14:50 - 15:00 湖畔落羽松草坪集合、入座質感野餐座席',
+          '15:00 - 16:00 零酒精香檳 Mocktail 手調教學與拍照時光',
+          '16:00 - 17:30 輕奢冷肉乳酪盒品味、木質不插電吉他現場微演奏',
+          '17:30 - 18:00 暮色漫步、合影留念與美好收尾'
+        ]
+      }
+    ];
+
+    // 全局狀態
+    let currentCategory = 'all';
+    let currentSearchTerm = '';
+    let currentStatusFilter = 'all';
+    let selectedEvent = eventsData[0];
+
+    // 初始化卡片渲染
+    function renderEvents() {
+      const container = document.getElementById('eventsGrid');
+      const emptyState = document.getElementById('emptyState');
+      
+      const filtered = eventsData.filter(event => {
+        // 分類過濾
+        const matchCategory = (currentCategory === 'all') || (event.category === currentCategory);
+        
+        // 關鍵字過濾
+        const matchSearch = event.title.toLowerCase().includes(currentSearchTerm.toLowerCase()) ||
+                            event.summary.toLowerCase().includes(currentSearchTerm.toLowerCase()) ||
+                            event.categoryName.toLowerCase().includes(currentSearchTerm.toLowerCase()) ||
+                            event.location.toLowerCase().includes(currentSearchTerm.toLowerCase());
+        
+        // 狀態過濾
+        let matchStatus = true;
+        if (currentStatusFilter === 'open') matchStatus = (event.status === 'open' || event.status === 'urgent');
+        if (currentStatusFilter === 'urgent') matchStatus = (event.totalSeats - event.reservedSeats) <= 4;
+        if (currentStatusFilter === 'earlybird') matchStatus = event.isEarlyBird;
+
+        return matchCategory && matchSearch && matchStatus;
+      });
+
+      // 更新分類總數
+      document.getElementById('count-all').innerText = eventsData.length;
+
+      if (filtered.length === 0) {
+        container.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      container.innerHTML = filtered.map(item => {
+        const remainingSeats = item.totalSeats - item.reservedSeats;
+        const progressPercent = Math.round((item.reservedSeats / item.totalSeats) * 100);
+        const isAlmostFull = remainingSeats <= 3;
+
+        return `
+          <div class="bg-white rounded-3xl border border-morandi-border overflow-hidden shadow-soft hover:shadow-card-hover transition-all duration-300 flex flex-col group">
+            <!-- 圖片與標籤 -->
+            <div class="relative h-52 overflow-hidden">
+              <img 
+                src="${item.image}" 
+                alt="${item.title}" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="lazy"
+              >
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+              
+              <!-- 狀態小標籤 -->
+              <div class="absolute top-3.5 left-3.5 flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/90 text-morandi-dark backdrop-blur">
+                  ${item.categoryEmoji} ${item.categoryName}
+                </span>
+                ${item.isEarlyBird ? `
+                  <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-terracotta-500 text-white shadow-xs">
+                    早鳥優惠
+                  </span>
+                ` : ''}
+              </div>
+
+              <!-- 地點微標籤 -->
+              <div class="absolute bottom-3 left-3 text-white text-xs flex items-center gap-1 font-light">
+                <i class="fa-solid fa-location-dot text-amber-200 text-xs"></i>
+                <span>${item.shortLocation}</span>
+              </div>
+            </div>
+
+            <!-- 內容主體 -->
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <!-- 日期時間 -->
+                <div class="flex items-center gap-1.5 text-xs text-morandi-muted mb-2 font-medium">
+                  <i class="fa-regular fa-calendar-days text-sage-600"></i>
+                  <span>${item.date} ${item.time}</span>
+                </div>
+
+                <!-- 標題 -->
+                <h3 class="font-serif-tc font-bold text-lg text-morandi-dark group-hover:text-terracotta-600 transition-colors line-clamp-1 mb-2">
+                  ${item.title}
+                </h3>
+
+                <!-- 簡短文案 -->
+                <p class="text-morandi-muted text-xs leading-relaxed line-clamp-2 font-light mb-4">
+                  ${item.summary}
+                </p>
+              </div>
+
+              <div>
+                <!-- 名額進度條 -->
+                <div class="bg-cream-100 p-3 rounded-2xl border border-morandi-border/60 mb-4">
+                  <div class="flex justify-between items-center text-[11px] mb-1.5">
+                    <span class="text-morandi-dark font-medium ${isAlmostFull ? 'text-terracotta-600 font-semibold' : ''}">
+                      ${isAlmostFull ? `🔥 僅剩最後 ${remainingSeats} 席` : `名額餘裕：剩 ${remainingSeats} 席`}
+                    </span>
+                    <span class="text-morandi-muted">已報名 ${progressPercent}%</span>
+                  </div>
+                  <div class="w-full bg-cream-200 h-1.5 rounded-full overflow-hidden">
+                    <div class="h-full rounded-full transition-all duration-500 ${isAlmostFull ? 'bg-terracotta-500' : 'bg-sage-500'}" style="width: ${progressPercent}%;"></div>
+                  </div>
+                </div>
+
+                <!-- 價格與互動按鈕 -->
+                <div class="flex items-center justify-between pt-2 border-t border-morandi-border/50">
+                  <div>
+                    <span class="text-[10px] text-morandi-muted block">體驗費用</span>
+                    <span class="text-lg font-bold font-serif-tc text-morandi-dark">NT$ ${item.price.toLocaleString()}</span>
+                  </div>
+
+                  <div class="flex items-center gap-2">
+                    <button 
+                      onclick="openDetailModal('${item.id}')" 
+                      class="px-3 py-2 rounded-full border border-morandi-border text-xs text-morandi-muted hover:text-morandi-dark hover:bg-cream-100 transition-colors"
+                      title="快速預覽活動"
+                    >
+                      詳情
+                    </button>
+                    <button 
+                      onclick="openRegisterModal('${item.id}')" 
+                      class="px-4 py-2 rounded-full bg-morandi-dark hover:bg-terracotta-500 text-white text-xs font-medium transition-all shadow-xs"
+                    >
+                      立即報名
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 分類點選切換
+    function setCategory(cat) {
+      currentCategory = cat;
+      const buttons = document.querySelectorAll('.category-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-morandi-dark', 'text-white', 'shadow-xs');
+        btn.classList.add('bg-cream-100', 'text-morandi-muted');
+      });
+
+      // 設定選中的樣式
+      event.target.classList.remove('bg-cream-100', 'text-morandi-muted');
+      event.target.classList.add('bg-morandi-dark', 'text-white', 'shadow-xs');
+
+      renderEvents();
+    }
+
+    // 關鍵字搜尋處理
+    function handleSearch() {
+      currentSearchTerm = document.getElementById('searchInput').value.trim();
+      renderEvents();
+    }
+
+    // 狀態過濾變更
+    function handleFilterChange() {
+      currentStatusFilter = document.getElementById('statusFilter').value;
+      renderEvents();
+    }
+
+    // 重置所有過濾
+    function resetFilters() {
+      currentCategory = 'all';
+      currentSearchTerm = '';
+      currentStatusFilter = 'all';
+      document.getElementById('searchInput').value = '';
+      document.getElementById('statusFilter').value = 'all';
+
+      const buttons = document.querySelectorAll('.category-btn');
+      buttons.forEach((btn, index) => {
+        if(index === 0) {
+          btn.classList.remove('bg-cream-100', 'text-morandi-muted');
+          btn.classList.add('bg-morandi-dark', 'text-white', 'shadow-xs');
+        } else {
+          btn.classList.remove('bg-morandi-dark', 'text-white', 'shadow-xs');
+          btn.classList.add('bg-cream-100', 'text-morandi-muted');
+        }
+      });
+
+      renderEvents();
+      showToast('已重設為全部生活提案');
+    }
+
+    // 平滑滾動到活動區
+    function scrollToEvents() {
+      document.getElementById('events-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 打開報名彈窗
+    function openRegisterModal(eventId) {
+      const event = eventsData.find(e => e.id === eventId) || eventsData[0];
+      selectedEvent = event;
+
+      document.getElementById('modalEventImg').src = event.image;
+      document.getElementById('modalEventTitle').innerText = event.title;
+      document.getElementById('modalEventDate').innerHTML = `<i class="fa-regular fa-clock mr-1"></i>${event.date} ${event.time}`;
+      document.getElementById('modalEventPrice').innerText = `每位 NT$ ${event.price.toLocaleString()}`;
+
+      // 重設表單數值
+      document.getElementById('regCount').value = '1';
+      updateTotalFee();
+
+      const modal = document.getElementById('registerModal');
+      const content = document.getElementById('registerModalContent');
+      modal.classList.remove('pointer-events-none', 'opacity-0');
+      modal.classList.add('opacity-100');
+      content.classList.remove('scale-95');
+      content.classList.add('scale-100');
+    }
+
+    // 關閉報名彈窗
+    function closeRegisterModal() {
+      const modal = document.getElementById('registerModal');
+      const content = document.getElementById('registerModalContent');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.classList.remove('opacity-100');
+      content.classList.add('scale-95');
+      content.classList.remove('scale-100');
+    }
+
+    // 即時計算總金額
+    function updateTotalFee() {
+      if (!selectedEvent) return;
+      const count = parseInt(document.getElementById('regCount').value, 10);
+      const total = selectedEvent.price * count;
+      document.getElementById('regTotalAmount').innerText = `NT$ ${total.toLocaleString()}`;
+    }
+
+    // 提交報名表單
+    function handleRegistrationSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('regName').value.trim();
+      const phone = document.getElementById('regPhone').value.trim();
+      const lineId = document.getElementById('regLine').value.trim();
+      const count = document.getElementById('regCount').value;
+
+      if (!name || !phone || !lineId) {
+        showToast('請完整填寫聯絡人基本資訊', 'error');
+        return;
+      }
+
+      // 生成隨機訂單編號
+      const randomOrder = 'LUM-' + Math.floor(100000 + Math.random() * 900000);
+      document.getElementById('succOrderNo').innerText = randomOrder;
+      document.getElementById('succEventTitle').innerText = selectedEvent.title;
+      document.getElementById('succName').innerText = `${name}（${count} 位）`;
+
+      // 關閉報名表單、開啟成功反饋
+      closeRegisterModal();
+      setTimeout(() => {
+        openSuccessModal();
+      }, 200);
+
+      // 模擬名額扣除
+      if (selectedEvent.reservedSeats < selectedEvent.totalSeats) {
+        selectedEvent.reservedSeats += parseInt(count, 10);
+        renderEvents();
+      }
+    }
+
+    // 打開成功彈窗
+    function openSuccessModal() {
+      const modal = document.getElementById('successModal');
+      const content = document.getElementById('successModalContent');
+      modal.classList.remove('pointer-events-none', 'opacity-0');
+      modal.classList.add('opacity-100');
+      content.classList.remove('scale-95');
+      content.classList.add('scale-100');
+    }
+
+    function closeSuccessModal() {
+      const modal = document.getElementById('successModal');
+      const content = document.getElementById('successModalContent');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.classList.remove('opacity-100');
+      content.classList.add('scale-95');
+      content.classList.remove('scale-100');
+      showToast('歡迎加入暖日漫聚，期待相遇！');
+    }
+
+    // 加到 Google 行事曆 (動態生成 URL)
+    function addToGoogleCalendar() {
+      if (!selectedEvent) return;
+      const title = encodeURIComponent(`【暖日漫聚】${selectedEvent.title}`);
+      const details = encodeURIComponent(`您已成功預約席次！\n活動時間：${selectedEvent.date} ${selectedEvent.time}\n地點：${selectedEvent.location}\n記得穿著舒適服裝前往，放鬆享受！`);
+      const location = encodeURIComponent(selectedEvent.location);
+      
+      // 預設以 20261017 格式帶入
+      const dates = "20261017T060000Z/20261017T090000Z";
+      const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${dates}`;
+      
+      window.open(gcalUrl, '_blank');
+      showToast('已開啟 Google 行事曆新增頁面');
+    }
+
+    // 加入 LINE 群引導
+    function joinLineGroup() {
+      showToast('正在為您導向本場次專屬 LINE 交流社群...');
+      setTimeout(() => {
+        window.open('https://line.me', '_blank');
+      }, 600);
+    }
+
+    // 打開活動詳情預覽
+    function openDetailModal(eventId) {
+      const event = eventsData.find(e => e.id === eventId) || eventsData[0];
+      selectedEvent = event;
+
+      document.getElementById('detailImg').src = event.image;
+      document.getElementById('detailCategoryBadge').innerText = `${event.categoryEmoji} ${event.categoryName}`;
+      document.getElementById('detailTitle').innerText = event.title;
+      document.getElementById('detailTime').innerHTML = `<i class="fa-regular fa-clock mr-1 text-sage-600"></i>${event.date} ${event.time}`;
+      document.getElementById('detailLocation').innerHTML = `<i class="fa-solid fa-location-dot mr-1 text-terracotta-500"></i>${event.location}`;
+      document.getElementById('detailCapacity').innerHTML = `<i class="fa-solid fa-user-group mr-1 text-morandi-muted"></i>限額 ${event.totalSeats} 席（尚餘 ${event.totalSeats - event.reservedSeats} 席）`;
+      document.getElementById('detailDescription').innerText = event.summary;
+      document.getElementById('detailPrice').innerText = `NT$ ${event.price.toLocaleString()}`;
+
+      // 流程清單
+      const scheduleContainer = document.getElementById('detailSchedule');
+      scheduleContainer.innerHTML = event.schedule.map(s => `<li>${s}</li>`).join('');
+
+      document.getElementById('detailRegisterActionBtn').onclick = () => {
+        closeDetailModal();
+        openRegisterModal(event.id);
+      };
+
+      const modal = document.getElementById('detailModal');
+      const content = document.getElementById('detailModalContent');
+      modal.classList.remove('pointer-events-none', 'opacity-0');
+      modal.classList.add('opacity-100');
+      content.classList.remove('scale-95');
+      content.classList.add('scale-100');
+    }
+
+    function closeDetailModal() {
+      const modal = document.getElementById('detailModal');
+      const content = document.getElementById('detailModalContent');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.classList.remove('opacity-100');
+      content.classList.add('scale-95');
+      content.classList.remove('scale-100');
+    }
+
+    // FAQ 摺疊互動
+    function toggleFaq(id) {
+      const ans = document.getElementById(`faq-ans-${id}`);
+      const icon = document.getElementById(`faq-icon-${id}`);
+      if (ans.classList.contains('hidden')) {
+        ans.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        ans.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    // 能量測驗彈窗
+    function openQuizModal() {
+      document.getElementById('quizStepContainer').classList.remove('hidden');
+      document.getElementById('quizResultContainer').classList.add('hidden');
+      
+      const modal = document.getElementById('quizModal');
+      const content = document.getElementById('quizModalContent');
+      modal.classList.remove('pointer-events-none', 'opacity-0');
+      modal.classList.add('opacity-100');
+      content.classList.remove('scale-95');
+      content.classList.add('scale-100');
+    }
+
+    function closeQuizModal() {
+      const modal = document.getElementById('quizModal');
+      const content = document.getElementById('quizModalContent');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.classList.remove('opacity-100');
+      content.classList.add('scale-95');
+      content.classList.remove('scale-100');
+    }
+
+    // 測驗結果計算
+    function calculateQuizResult() {
+      const q1 = document.querySelector('input[name="quizQ1"]:checked')?.value || 'tired';
+      const q2 = document.querySelector('input[name="quizQ2"]:checked')?.value || 'art';
+      
+      let matchedEvent = eventsData[0]; // 預設頌缽
+
+      if (q1 === 'sedentary' || q2 === 'energy') {
+        matchedEvent = eventsData[2]; // 羽球
+      } else if (q1 === 'lonely' || q2 === 'knowledge') {
+        matchedEvent = eventsData[1]; // 輕食料理或桌遊
+      } else if (q1 === 'tired') {
+        matchedEvent = eventsData[0]; // 頌缽心靈
+      }
+
+      document.getElementById('quizMatchTitle').innerText = matchedEvent.title;
+      document.getElementById('quizMatchDesc').innerText = `解析出您目前的節奏需要專屬的滋養與呼吸。「${matchedEvent.categoryName}」能為您帶來恰到好處的放鬆！`;
+      
+      document.getElementById('quizActionBtn').onclick = () => {
+        closeQuizModal();
+        openRegisterModal(matchedEvent.id);
+      };
+
+      document.getElementById('quizStepContainer').classList.add('hidden');
+      document.getElementById('quizResultContainer').classList.remove('hidden');
+    }
+
+    // --- 管理抽屜函式 (Admin Drawer Functions) ---
+    function openAdminDrawer() {
+      const drawer = document.getElementById('adminDrawer');
+      drawer.classList.remove('translate-x-full');
+      
+      // 填充活動選項
+      const select = document.getElementById('adminSelectEvent');
+      select.innerHTML = eventsData.map(e => `<option value="${e.id}">${e.title}</option>`).join('');
+      loadEventIntoAdminForm();
+    }
+
+    function closeAdminDrawer() {
+      document.getElementById('adminDrawer').classList.add('translate-x-full');
+    }
+
+    function loadEventIntoAdminForm() {
+      const selectedId = document.getElementById('adminSelectEvent').value;
+      const ev = eventsData.find(e => e.id === selectedId);
+      if (!ev) return;
+
+      document.getElementById('editTitle').value = ev.title;
+      document.getElementById('editDate').value = ev.date;
+      document.getElementById('editTime').value = ev.time;
+      document.getElementById('editLocation').value = ev.location;
+      document.getElementById('editPrice').value = ev.price;
+      document.getElementById('editTotalSeats').value = ev.totalSeats;
+      document.getElementById('editReservedSeats').value = ev.reservedSeats;
+      document.getElementById('editImage').value = ev.image;
+      document.getElementById('editSummary').value = ev.summary;
+      document.getElementById('editSchedule').value = ev.schedule.join('\n');
+    }
+
+    function saveAdminEventChanges() {
+      const selectedId = document.getElementById('adminSelectEvent').value;
+      const ev = eventsData.find(e => e.id === selectedId);
+      if (!ev) return;
+
+      ev.title = document.getElementById('editTitle').value;
+      ev.date = document.getElementById('editDate').value;
+      ev.time = document.getElementById('editTime').value;
+      ev.location = document.getElementById('editLocation').value;
+      ev.price = parseInt(document.getElementById('editPrice').value, 10) || 0;
+      ev.totalSeats = parseInt(document.getElementById('editTotalSeats').value, 10) || 10;
+      ev.reservedSeats = parseInt(document.getElementById('editReservedSeats').value, 10) || 0;
+      ev.image = document.getElementById('editImage').value;
+      ev.summary = document.getElementById('editSummary').value;
+      ev.schedule = document.getElementById('editSchedule').value.split('\n').filter(s => s.trim() !== '');
+
+      renderEvents();
+      closeAdminDrawer();
+      showToast(`「${ev.title}」已成功更新！`);
+    }
+
+    // 提示通知 Toast
+    let toastTimeout = null;
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      const msg = document.getElementById('toastMessage');
+      const icon = document.getElementById('toastIcon');
+
+      msg.innerText = message;
+      if (type === 'error') {
+        icon.className = 'fa-solid fa-circle-exclamation text-terracotta-300';
+      } else {
+        icon.className = 'fa-solid fa-check text-sage-300';
+      }
+
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      toast.classList.add('opacity-100');
+
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none');
+        toast.classList.remove('opacity-100');
+      }, 2800);
+    }
+
+    // 頁面初始化
+    window.onload = function() {
+      renderEvents();
+      // 點擊彈窗外部區域自動關閉
+      window.addEventListener('click', function(e) {
+        if (e.target.id === 'registerModal') closeRegisterModal();
+        if (e.target.id === 'detailModal') closeDetailModal();
+        if (e.target.id === 'quizModal') closeQuizModal();
+        if (e.target.id === 'successModal') closeSuccessModal();
+      });
+    };
+  </script>
+</body>
+</html>
