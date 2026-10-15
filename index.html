@@ -2,7 +2,7 @@
 <html lang="zh-TW" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>暖日漫聚｜Lumière Living - 輕鬆自在的生活微體驗與日常輕社交</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,21 +41,24 @@
     }
   </script>
   <style>
-    body { background-color: #FDFBF7; color: #2D2B2A; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background-color: #FDFBF7; color: #2D2B2A; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+    /* 手機端橫向滑動條隱藏但保有滑動功能 */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="selection:bg-brand-terracotta selection:text-white">
+<body class="selection:bg-brand-terracotta selection:text-white antialiased">
 
-  <!-- 1. 導航列 -->
-  <header class="sticky top-0 z-40 bg-brand-cream/90 backdrop-blur-md border-b border-brand-border/60">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <div class="flex items-center gap-3 select-none">
-        <div class="w-10 h-10 rounded-2xl bg-brand-terracotta/10 border border-brand-terracotta/20 flex items-center justify-center text-brand-terracotta font-serif font-bold text-lg">
+  <!-- 1. 導航列 (優化手機端擠壓問題) -->
+  <header class="sticky top-0 z-40 bg-brand-cream/95 backdrop-blur-md border-b border-brand-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 sm:gap-3 select-none shrink-0">
+        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-brand-terracotta/10 border border-brand-terracotta/20 flex items-center justify-center text-brand-terracotta font-serif font-bold text-base sm:text-lg">
           漫
         </div>
         <div>
-          <span class="font-serif font-bold text-xl tracking-wider text-brand-charcoal block leading-none">暖日漫聚</span>
-          <span class="text-[10px] text-brand-muted tracking-[0.2em] uppercase font-sans mt-1 block">Lumière Living Club</span>
+          <span class="font-serif font-bold text-lg sm:text-xl tracking-wider text-brand-charcoal block leading-none">暖日漫聚</span>
+          <span class="text-[9px] sm:text-[10px] text-brand-muted tracking-[0.15em] sm:tracking-[0.2em] uppercase font-sans mt-0.5 sm:mt-1 block">Lumière Living</span>
         </div>
       </div>
 
@@ -66,43 +69,43 @@
         <a href="#faq" class="hover:text-brand-terracotta transition">常見問題</a>
       </nav>
 
-      <div class="flex items-center gap-3">
-        <button onclick="openQuizModal()" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-brand-sage bg-brand-sage-light hover:bg-brand-sage/20 rounded-full transition">
-          ✨ 測測這週想去哪放鬆
+      <div class="flex items-center gap-2 shrink-0">
+        <button onclick="openQuizModal()" class="inline-flex items-center gap-1 px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-semibold text-brand-sage bg-brand-sage-light hover:bg-brand-sage/20 rounded-full transition">
+          ✨ <span class="hidden xs:inline">能量</span>測驗
         </button>
-        <a href="#events-section" class="px-5 py-2.5 rounded-full bg-brand-charcoal text-white hover:bg-brand-terracotta text-xs font-semibold tracking-wider transition shadow-sm">
-          瀏覽活動 ↓
+        <a href="#events-section" class="px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-full bg-brand-charcoal text-white hover:bg-brand-terracotta text-[11px] sm:text-xs font-semibold tracking-wider transition shadow-sm">
+          探索聚會 ↓
         </a>
       </div>
     </div>
   </header>
 
-  <!-- 2. Hero 視覺焦點區 -->
-  <section class="relative pt-10 pb-16 md:pt-16 md:pb-24">
+  <!-- 2. Hero 視覺焦點區 (手機端字級與間距最佳化) -->
+  <section class="relative pt-8 pb-12 sm:pt-14 sm:pb-20 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-sand text-xs font-medium text-brand-charcoal mb-6 border border-brand-border">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-sand text-[11px] sm:text-xs font-medium text-brand-charcoal mb-4 sm:mb-6 border border-brand-border">
           <span class="w-2 h-2 rounded-full bg-brand-sage animate-ping"></span>
-          <span>十月生活策展・平日晚間自我充能 ＆ 週末無負擔聚會</span>
+          <span>十月生活策展・平日充能 ＆ 週末無負擔聚會</span>
         </div>
-        <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-brand-charcoal font-bold tracking-tight leading-[1.25] mb-6">
+        <h1 class="font-serif text-2xl xs:text-3xl sm:text-5xl lg:text-6xl text-brand-charcoal font-bold tracking-tight leading-[1.3] mb-4 sm:mb-6">
           在忙碌日常裡，<br>
-          留給自己一場<span class="text-brand-terracotta underline decoration-brand-terracotta/30 underline-offset-8">零壓力的聚會</span>。
+          留給自己一場<span class="text-brand-terracotta underline decoration-brand-terracotta/30 underline-offset-4 sm:underline-offset-8">零壓力的聚會</span>。
         </h1>
-        <p class="text-base sm:text-lg text-brand-muted leading-relaxed mb-8 font-light">
+        <p class="text-sm sm:text-base lg:text-lg text-brand-muted leading-relaxed mb-6 sm:mb-8 font-light">
           不用複雜準備、沒有社交壓力。在咖啡香裡聊一本喜歡的書、畫畫曼陀羅、羽球場揮拍或花博草地野餐；平日晚間聽聽 AI 外掛心法與甜點店長吃瘦學。百元銅板價，換一個有收穫的溫暖時光。
         </p>
-        <div class="flex flex-wrap gap-2.5 mb-10 text-xs text-brand-charcoal/80 font-medium">
-          <span class="px-3 py-1.5 rounded-lg bg-white border border-brand-border"># 免備用具人來就好</span>
-          <span class="px-3 py-1.5 rounded-lg bg-white border border-brand-border"># 100元超值銅板特規講座</span>
-          <span class="px-3 py-1.5 rounded-lg bg-white border border-brand-border"># 單人報名高達八成不用怕尷尬</span>
-          <span class="px-3 py-1.5 rounded-lg bg-white border border-brand-border"># 古亭、東門、行天宮、雙連站周邊</span>
+        <div class="flex flex-wrap gap-2 mb-8 text-[11px] sm:text-xs text-brand-charcoal/80 font-medium">
+          <span class="px-2.5 py-1 rounded-lg bg-white border border-brand-border"># 免備用具人來就好</span>
+          <span class="px-2.5 py-1 rounded-lg bg-white border border-brand-border"># 100元超值特規講座</span>
+          <span class="px-2.5 py-1 rounded-lg bg-white border border-brand-border"># 單人報名高達八成不用怕尷尬</span>
+          <span class="px-2.5 py-1 rounded-lg bg-white border border-brand-border"># 捷運步行好抵達</span>
         </div>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#featured" class="inline-flex justify-center items-center px-8 py-4 rounded-2xl bg-brand-terracotta text-white font-medium hover:bg-brand-terracotta-dark shadow-md transition text-sm">
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="#featured" class="w-full sm:w-auto text-center px-6 py-3.5 rounded-2xl bg-brand-terracotta text-white font-medium hover:bg-brand-terracotta-dark shadow-md transition text-xs sm:text-sm">
             查看本週主打推薦
           </a>
-          <button onclick="openQuizModal()" class="inline-flex justify-center items-center px-7 py-4 rounded-2xl bg-white border border-brand-border text-brand-charcoal hover:bg-brand-canvas font-medium transition text-sm shadow-soft">
+          <button onclick="openQuizModal()" class="w-full sm:w-auto text-center px-6 py-3.5 rounded-2xl bg-white border border-brand-border text-brand-charcoal hover:bg-brand-canvas font-medium transition text-xs sm:text-sm shadow-soft">
             30秒測測這週最適合去哪？
           </button>
         </div>
@@ -110,130 +113,132 @@
     </div>
   </section>
 
-  <!-- 3. 本週主打推薦 (由 10/18 曼陀羅彩繪接棒主打) -->
-  <section id="featured" class="py-12 bg-brand-canvas border-y border-brand-border/80">
+  <!-- 3. 本週主打推薦 (手機端左右欄垂直堆疊最佳化) -->
+  <section id="featured" class="py-10 sm:py-12 bg-brand-canvas border-y border-brand-border/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between mb-8">
+      <div class="flex items-center justify-between mb-6 sm:mb-8">
         <div>
-          <span class="text-xs uppercase tracking-widest text-brand-terracotta font-bold block mb-1">Weekly Spotlight</span>
-          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-charcoal">本週主打推薦</h2>
+          <span class="text-[10px] sm:text-xs uppercase tracking-widest text-brand-terracotta font-bold block mb-1">Weekly Spotlight</span>
+          <h2 class="font-serif text-xl sm:text-3xl font-bold text-brand-charcoal">本週主打推薦</h2>
         </div>
-        <span class="text-xs text-brand-muted hidden sm:inline">即將登場・歡迎一人前往放鬆</span>
+        <span class="text-[11px] sm:text-xs text-brand-muted hidden xs:inline">即將登場・歡迎一人前往放鬆</span>
       </div>
       <div id="featuredCardContainer"></div>
     </div>
   </section>
 
-  <!-- 4. 活動過濾與卡片專區 -->
-  <section id="events-section" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-2xl mx-auto mb-12">
-      <h2 class="font-serif text-3xl font-bold text-brand-charcoal mb-4">探索聚會活動・找到想加入的日常</h2>
-      <p class="text-sm text-brand-muted">在熟悉的街角咖啡廳、運動中心或溫馨空間，用最舒服的步調認識生活。</p>
+  <!-- 4. 活動過濾與卡片專區 (分類標籤在手機端支援左右橫向流暢滑動) -->
+  <section id="events-section" class="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+      <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-charcoal mb-3">探索聚會活動・找到想加入的日常</h2>
+      <p class="text-xs sm:text-sm text-brand-muted">在熟悉的街角咖啡廳、運動中心或溫馨空間，用最舒服的步調認識生活。</p>
     </div>
 
-    <!-- 分類切換按鈕 -->
-    <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-8" id="categoryFilters">
-      <button onclick="setFilter('all')" data-cat="all" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-brand-charcoal text-white">✨ 全部活動</button>
-      <button onclick="setFilter('mind')" data-cat="mind" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas">🎨 曼陀羅與色彩</button>
-      <button onclick="setFilter('reading')" data-cat="reading" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas">📚 隨興微讀書會</button>
-      <button onclick="setFilter('learning')" data-cat="learning" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas">🤖 AI 與知性微學習</button>
-      <button onclick="setFilter('health')" data-cat="health" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas">🌿 健康與享瘦生活</button>
-      <button onclick="setFilter('sports')" data-cat="sports" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas">🏸 活力羽球</button>
-      <button onclick="setFilter('cuisine')" data-cat="cuisine" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas">🥗 特色料理聚</button>
-      <button onclick="setFilter('social')" data-cat="social" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas">🎲 咖啡廳輕桌遊</button>
-      <button onclick="setFilter('picnic')" data-cat="picnic" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas">🧺 花博草地野餐</button>
+    <!-- 分類切換按鈕 (手機端支援自然左右平滑滾動) -->
+    <div class="relative mb-6 sm:mb-8">
+      <div class="flex items-center sm:justify-center gap-2 overflow-x-auto no-scrollbar py-1 px-1 -mx-4 sm:mx-0 px-4 sm:px-0" id="categoryFilters">
+        <button onclick="setFilter('all')" data-cat="all" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-brand-charcoal text-white transition">✨ 全部活動</button>
+        <button onclick="setFilter('mind')" data-cat="mind" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🎨 曼陀羅色彩</button>
+        <button onclick="setFilter('reading')" data-cat="reading" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">📚 微讀書會</button>
+        <button onclick="setFilter('learning')" data-cat="learning" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🤖 AI生活開掛</button>
+        <button onclick="setFilter('health')" data-cat="health" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🌿 甜點吃瘦學</button>
+        <button onclick="setFilter('sports')" data-cat="sports" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🏸 活力羽球</button>
+        <button onclick="setFilter('cuisine')" data-cat="cuisine" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🥗 特色料理聚</button>
+        <button onclick="setFilter('social')" data-cat="social" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🎲 咖啡廳輕桌遊</button>
+        <button onclick="setFilter('picnic')" data-cat="picnic" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🧺 花博野餐</button>
+      </div>
     </div>
 
     <!-- 搜尋框 -->
-    <div class="flex justify-end mb-10 pb-6 border-b border-brand-border">
+    <div class="flex justify-end mb-8 sm:mb-10 pb-4 sm:pb-6 border-b border-brand-border">
       <div class="relative w-full sm:w-72">
         <input type="text" id="searchInput" oninput="handleSearch()" placeholder="搜尋活動（如：東門、AI、讀書會...）" class="w-full text-xs pl-9 pr-4 py-2.5 rounded-full border border-brand-border bg-white focus:outline-none focus:border-brand-terracotta">
         <span class="absolute left-3.5 top-2.5 text-stone-400">🔍</span>
       </div>
     </div>
 
-    <!-- 活動卡片清單 -->
-    <div id="eventsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    <!-- 活動卡片清單 (手機單欄，電腦多欄) -->
+    <div id="eventsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"></div>
   </section>
 
   <!-- 5. 聚會特色與 FAQ -->
-  <section id="about" class="py-16 bg-white border-t border-brand-border">
+  <section id="about" class="py-12 sm:py-16 bg-white border-t border-brand-border">
     <div class="max-w-4xl mx-auto px-4 text-center">
-      <h3 class="font-serif text-2xl font-bold text-brand-charcoal mb-4">我們喜歡的聚會模樣</h3>
-      <p class="text-brand-muted text-sm leading-relaxed mb-8 max-w-2xl mx-auto">
+      <h3 class="font-serif text-xl sm:text-2xl font-bold text-brand-charcoal mb-3">我們喜歡的聚會模樣</h3>
+      <p class="text-brand-muted text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto">
         生活已經有太多待辦事項與KPI，日常聚會就該回歸純粹的休息。不用提前準備、沒有繁瑣門檻，帶著放鬆的心情出門就好。
       </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-        <div class="p-6 rounded-2xl bg-brand-canvas border border-brand-border">
-          <div class="text-brand-terracotta text-2xl mb-2">💡</div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 text-left">
+        <div class="p-5 sm:p-6 rounded-2xl bg-brand-canvas border border-brand-border">
+          <div class="text-brand-terracotta text-xl sm:text-2xl mb-2">💡</div>
           <h4 class="font-bold text-sm text-brand-charcoal mb-1">銅板收費・高含金量</h4>
-          <p class="text-xs text-brand-muted">平日微講座僅收 100 元場地費；假日活動多數 200 元含飲品或低消自理，無推銷壓力。</p>
+          <p class="text-xs text-brand-muted leading-relaxed">平日微講座僅收 100 元場地費；假日活動多數 200 元含飲品或低消自理，無推銷壓力。</p>
         </div>
-        <div class="p-6 rounded-2xl bg-brand-canvas border border-brand-border">
-          <div class="text-brand-sage text-2xl mb-2">🎈</div>
+        <div class="p-5 sm:p-6 rounded-2xl bg-brand-canvas border border-brand-border">
+          <div class="text-brand-sage text-xl sm:text-2xl mb-2">🎈</div>
           <h4 class="font-bold text-sm text-brand-charcoal mb-1">空手出席・無須負擔</h4>
-          <p class="text-xs text-brand-muted">AI開外掛、甜點店長吃瘦學、曼陀羅彩繪與讀書會皆免備繁雜用具，人來就好。</p>
+          <p class="text-xs text-brand-muted leading-relaxed">AI開外掛、甜點店長吃瘦學、曼陀羅彩繪與讀書會皆免備繁雜用具，人來就好。</p>
         </div>
-        <div class="p-6 rounded-2xl bg-brand-canvas border border-brand-border">
-          <div class="text-brand-terracotta text-2xl mb-2">🚇</div>
+        <div class="p-5 sm:p-6 rounded-2xl bg-brand-canvas border border-brand-border">
+          <div class="text-brand-terracotta text-xl sm:text-2xl mb-2">🚇</div>
           <h4 class="font-bold text-sm text-brand-charcoal mb-1">交通便利・捷運周邊</h4>
-          <p class="text-xs text-brand-muted">精選東門、行天宮、古亭、雙連、圓山、石牌等捷運步行可達的溫馨場地，輕鬆抵達。</p>
+          <p class="text-xs text-brand-muted leading-relaxed">精選東門、行天宮、古亭、雙連、圓山、石牌等捷運步行可達的溫馨場地，輕鬆抵達。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="faq" class="py-16 max-w-3xl mx-auto px-4">
-    <h3 class="font-serif text-2xl font-bold text-center text-brand-charcoal mb-8">常見問題</h3>
-    <div class="space-y-4 text-left">
-      <div class="border border-brand-border rounded-2xl p-5 bg-white">
-        <h4 class="font-bold text-sm text-brand-charcoal mb-1">Q: 曼陀羅彩繪需要有繪畫基礎嗎？</h4>
+  <section id="faq" class="py-12 sm:py-16 max-w-3xl mx-auto px-4">
+    <h3 class="font-serif text-xl sm:text-2xl font-bold text-center text-brand-charcoal mb-6 sm:mb-8">常見問題</h3>
+    <div class="space-y-3 sm:space-y-4 text-left">
+      <div class="border border-brand-border rounded-2xl p-4 sm:p-5 bg-white">
+        <h4 class="font-bold text-xs sm:text-sm text-brand-charcoal mb-1">Q: 曼陀羅彩繪需要有繪畫基礎嗎？</h4>
         <p class="text-xs text-brand-muted leading-relaxed">完全不需要！現場會提供專屬紙卡與彩繪用具，人來就好。著色後會由主辦人透過直覺顏色進行分享與心情小解碼，輕鬆有趣。</p>
       </div>
-      <div class="border border-brand-border rounded-2xl p-5 bg-white">
-        <h4 class="font-bold text-sm text-brand-charcoal mb-1">Q: 讀書會真的不需要帶書或寫讀書心得嗎？</h4>
+      <div class="border border-brand-border rounded-2xl p-4 sm:p-5 bg-white">
+        <h4 class="font-bold text-xs sm:text-sm text-brand-charcoal mb-1">Q: 讀書會真的不需要帶書或寫讀書心得嗎？</h4>
         <p class="text-xs text-brand-muted leading-relaxed">真的不用！只要心中想到一本你曾經看過且喜歡的書，在咖啡廳點一杯飲品，大家就像朋友閒聊一樣輪流分享。</p>
       </div>
-      <div class="border border-brand-border rounded-2xl p-5 bg-white">
-        <h4 class="font-bold text-sm text-brand-charcoal mb-1">Q: 我完全沒有 AI 或程式背景，聽得懂「AI教你開外掛」嗎？</h4>
+      <div class="border border-brand-border rounded-2xl p-4 sm:p-5 bg-white">
+        <h4 class="font-bold text-xs sm:text-sm text-brand-charcoal mb-1">Q: 我完全沒有 AI 背景，聽得懂「AI教你開外掛」嗎？</h4>
         <p class="text-xs text-brand-muted leading-relaxed">完全不用擔心！這場活動是專為「生活日常」設計的入門分享，不講深奧演算法，只教你用白話文跟 AI 溝通的指令結構，當場就能學會怎麼叫它幫你排行程、挑食譜與寫訊息。</p>
       </div>
-      <div class="border border-brand-border rounded-2xl p-5 bg-white">
-        <h4 class="font-bold text-sm text-brand-charcoal mb-1">Q: 羽球活動需要自備球拍嗎？</h4>
+      <div class="border border-brand-border rounded-2xl p-4 sm:p-5 bg-white">
+        <h4 class="font-bold text-xs sm:text-sm text-brand-charcoal mb-1">Q: 羽球活動需要自備球拍嗎？</h4>
         <p class="text-xs text-brand-muted leading-relaxed">有自備球拍可直接攜帶，若無球拍可於大同運動中心櫃檯現場租借。活動費用 200 元已含場地費與比賽級羽球！</p>
       </div>
     </div>
   </section>
 
-  <!-- 6. 能量測驗彈窗 -->
-  <div id="quizModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative text-left">
-      <button onclick="closeQuizModal()" class="absolute top-5 right-5 text-stone-400 hover:text-stone-700">✕</button>
+  <!-- 6. 能量測驗彈窗 (優化手機滿版與可滾動體驗) -->
+  <div id="quizModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-md w-full p-5 sm:p-8 shadow-2xl relative text-left my-auto max-h-[90vh] overflow-y-auto">
+      <button onclick="closeQuizModal()" class="absolute top-4 right-4 sm:top-5 sm:right-5 text-stone-400 hover:text-stone-700 p-1">✕</button>
       
       <div id="quizQuestionView">
-        <span class="text-xs font-bold text-brand-sage uppercase tracking-wider block mb-1">Weekly Choice</span>
-        <h3 class="font-serif text-xl font-bold text-brand-charcoal mb-4">測測這週你最需要哪種陪伴？</h3>
-        <p class="text-xs text-brand-muted mb-6">請憑第一直覺選擇，幫你推薦最舒服的聚會：</p>
+        <span class="text-[10px] sm:text-xs font-bold text-brand-sage uppercase tracking-wider block mb-1">Weekly Choice</span>
+        <h3 class="font-serif text-lg sm:text-xl font-bold text-brand-charcoal mb-3 sm:mb-4">測測這週你最需要哪種陪伴？</h3>
+        <p class="text-xs text-brand-muted mb-4 sm:mb-6">請憑第一直覺選擇，幫你推薦最舒服的聚會：</p>
         
-        <div class="space-y-3 text-xs">
-          <button onclick="answerQuiz('mind')" class="w-full text-left p-4 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
-            <span class="font-bold block text-brand-charcoal mb-1">A. 想在安靜的咖啡香裡塗鴉，聊聊最近的心情</span>
+        <div class="space-y-2.5 text-xs">
+          <button onclick="answerQuiz('mind')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
+            <span class="font-bold block text-brand-charcoal mb-0.5">A. 想在安靜的咖啡香裡塗鴉，聊聊最近的心情</span>
             <span class="text-brand-muted text-[11px]">→ 推薦：咖啡廳曼陀羅彩繪與顏色分析 ($200，近東門站)</span>
           </button>
-          <button onclick="answerQuiz('learning_ai')" class="w-full text-left p-4 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
-            <span class="font-bold block text-brand-charcoal mb-1">B. 想搞懂 AI 怎麼融入日常，讓它幫自己分擔生活雜事</span>
+          <button onclick="answerQuiz('learning_ai')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
+            <span class="font-bold block text-brand-charcoal mb-0.5">B. 想搞懂 AI 怎麼融入日常，讓它幫自己分擔生活雜事</span>
             <span class="text-brand-muted text-[11px]">→ 推薦：AI教你開外掛・提示詞生活達人 ($100，近古亭站)</span>
           </button>
-          <button onclick="answerQuiz('reading')" class="w-full text-left p-4 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
-            <span class="font-bold block text-brand-charcoal mb-1">C. 平日下班想喝杯咖啡，輕鬆聽聽大家聊好書</span>
+          <button onclick="answerQuiz('reading')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
+            <span class="font-bold block text-brand-charcoal mb-0.5">C. 平日下班想喝杯咖啡，輕鬆聽聽大家聊好書</span>
             <span class="text-brand-muted text-[11px]">→ 推薦：週二夜免做功課・咖啡微讀書會 (自理低消，近行天宮站)</span>
           </button>
-          <button onclick="answerQuiz('health_diet')" class="w-full text-left p-4 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
-            <span class="font-bold block text-brand-charcoal mb-1">D. 想吃甜點又怕胖，渴望找到不挨餓的維持體態祕訣</span>
+          <button onclick="answerQuiz('health_diet')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
+            <span class="font-bold block text-brand-charcoal mb-0.5">D. 想吃甜點又怕胖，渴望找到不挨餓的維持體態祕訣</span>
             <span class="text-brand-muted text-[11px]">→ 推薦：網紅甜點店長「怎麼吃瘦」控糖學 ($100，近雙連站)</span>
           </button>
-          <button onclick="answerQuiz('sports')" class="w-full text-left p-4 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
-            <span class="font-bold block text-brand-charcoal mb-1">E. 想動動身體、流流汗，拋開工作煩惱</span>
+          <button onclick="answerQuiz('sports')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
+            <span class="font-bold block text-brand-charcoal mb-0.5">E. 想動動身體、流流汗，拋開工作煩惱</span>
             <span class="text-brand-muted text-[11px]">→ 推薦：大同運動中心活力羽球 ($200)</span>
           </button>
         </div>
@@ -243,7 +248,7 @@
         <div class="text-3xl mb-2" id="quizResultEmoji">🌿</div>
         <h4 class="font-serif text-lg font-bold text-brand-charcoal mb-2" id="quizResultTitle">推薦聚會配對成功！</h4>
         <p class="text-xs text-brand-muted mb-6 leading-relaxed" id="quizResultDesc">--</p>
-        <button onclick="goToRecommendedEvent()" class="w-full py-3 rounded-xl bg-brand-terracotta text-white font-medium text-xs tracking-wider shadow-md hover:bg-brand-terracotta-dark transition">
+        <button onclick="goToRecommendedEvent()" class="w-full py-3.5 rounded-xl bg-brand-terracotta text-white font-medium text-xs tracking-wider shadow-md hover:bg-brand-terracotta-dark transition">
           立即查看推薦聚會
         </button>
       </div>
@@ -251,10 +256,10 @@
   </div>
 
   <!-- 7. 頁尾 -->
-  <footer class="bg-brand-charcoal text-brand-sand py-12 text-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="text-center md:text-left">
-        <span class="font-serif text-lg font-bold text-white tracking-wider block">暖日漫聚｜Lumière Living</span>
+  <footer class="bg-brand-charcoal text-brand-sand py-10 sm:py-12 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6">
+      <div class="text-center sm:text-left">
+        <span class="font-serif text-base sm:text-lg font-bold text-white tracking-wider block">暖日漫聚｜Lumière Living</span>
         <p class="text-stone-400 text-[11px] mt-1">在日常與理想生活之間，留給自己一場溫柔的相遇。</p>
       </div>
       <div class="flex gap-6 text-stone-400">
@@ -406,7 +411,7 @@
         title: "甜蜜無罪惡・人氣網紅甜點店長的「聰明吃瘦」控糖法則",
         category: "health",
         date: "2026/10/28 (週三) 19:30 - 21:00",
-        location: "台北市共享美學沙龍 (近捷運雙連站)",
+        location: "台北市共享空間 (近捷運雙連站)",
         priceText: "NT$ 100",
         feeNote: "超值百元場地分攤費",
         image: "diet.png",
@@ -456,7 +461,7 @@
       renderEvents();
     });
 
-    // 1. 渲染本週主打推薦 (由 10/18 曼陀羅接棒)
+    // 1. 渲染本週主打推薦 (手機端彈性排版)
     function renderFeaturedEvent() {
       const featured = eventsData[0];
       const container = document.getElementById("featuredCardContainer");
@@ -464,51 +469,51 @@
 
       container.innerHTML = `
         <div class="bg-white rounded-3xl border border-brand-border overflow-hidden shadow-soft hover:shadow-card-hover transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 text-left">
-          <div class="lg:col-span-7 relative min-h-[280px] lg:min-h-[380px] overflow-hidden group">
+          <div class="lg:col-span-7 relative min-h-[220px] xs:min-h-[260px] sm:min-h-[340px] lg:min-h-[380px] overflow-hidden group">
             <img src="${featured.image}" onerror="this.onerror=null;this.src='${featured.fallback}'" alt="${featured.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-            <div class="absolute top-5 left-5">
-              <span class="px-4 py-1.5 rounded-full bg-brand-terracotta text-white text-xs font-semibold tracking-wider shadow-sm">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+            <div class="absolute top-4 left-4">
+              <span class="px-3.5 py-1 rounded-full bg-brand-terracotta text-white text-[11px] sm:text-xs font-semibold tracking-wider shadow-sm">
                 ${featured.badge}
               </span>
             </div>
-            <div class="absolute bottom-5 left-5 right-5 text-white">
-              <span class="text-xs font-light text-brand-sand block mb-1">本週即將登場 • 歡迎一人前往</span>
-              <p class="font-serif text-xl sm:text-2xl font-bold leading-snug">${featured.title}</p>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <span class="text-[11px] font-light text-brand-sand block mb-0.5">本週即將登場 • 歡迎一人前往</span>
+              <p class="font-serif text-lg sm:text-2xl font-bold leading-snug">${featured.title}</p>
             </div>
           </div>
 
-          <div class="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between bg-white">
+          <div class="lg:col-span-5 p-5 sm:p-7 flex flex-col justify-between bg-white">
             <div>
-              <div class="flex items-center justify-between text-xs text-brand-muted mb-4 pb-3 border-b border-brand-border">
+              <div class="flex items-center justify-between text-xs text-brand-muted mb-3 sm:mb-4 pb-2.5 border-b border-brand-border">
                 <span>🗓️ ${featured.date}</span>
                 <span class="text-brand-terracotta font-bold">${featured.statusText}</span>
               </div>
-              <p class="text-xs text-brand-muted leading-relaxed mb-6 font-light">
+              <p class="text-xs text-brand-muted leading-relaxed mb-4 sm:mb-5 font-light">
                 ${featured.description}
               </p>
               
-              <div class="space-y-2 mb-6">
+              <div class="space-y-1.5 mb-4 sm:mb-5">
                 ${featured.highlights.map(h => `
                   <div class="flex items-center gap-2 text-xs text-brand-charcoal font-medium">
-                    <span class="w-1.5 h-1.5 rounded-full bg-brand-sage"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-sage shrink-0"></span>
                     <span>${h}</span>
                   </div>
                 `).join('')}
               </div>
 
-              <div class="text-[11px] text-stone-500 flex items-center gap-1 mb-6">
+              <div class="text-[11px] text-stone-500 flex items-center gap-1 mb-5">
                 <span>📍</span>
                 <span>${featured.location}</span>
               </div>
             </div>
 
-            <div class="flex items-center justify-between pt-4 border-t border-brand-border">
+            <div class="flex items-center justify-between pt-3.5 border-t border-brand-border gap-2">
               <div>
                 <span class="text-[10px] text-stone-400 block">${featured.feeNote}</span>
-                <span class="font-serif text-2xl font-bold text-brand-terracotta">${featured.priceText}</span>
+                <span class="font-serif text-xl sm:text-2xl font-bold text-brand-terracotta">${featured.priceText}</span>
               </div>
-              <button onclick="handleJoinEvent('${featured.id}')" class="px-7 py-3.5 rounded-2xl bg-brand-terracotta text-white font-medium hover:bg-brand-terracotta-dark transition text-xs shadow-md">
+              <button onclick="handleJoinEvent('${featured.id}')" class="px-5 py-3 sm:px-7 sm:py-3.5 rounded-2xl bg-brand-terracotta text-white font-medium hover:bg-brand-terracotta-dark transition text-xs shadow-md shrink-0">
                 立即填表報名 →
               </button>
             </div>
@@ -517,7 +522,7 @@
       `;
     }
 
-    // 2. 渲染活動卡片列表
+    // 2. 渲染活動卡片列表 (手機端高度與內距最佳化)
     function renderEvents() {
       const grid = document.getElementById("eventsGrid");
       if (!grid) return;
@@ -544,46 +549,46 @@
       grid.innerHTML = filtered.map(item => `
         <div class="bg-white rounded-3xl border border-brand-border overflow-hidden shadow-soft hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group text-left">
           <div>
-            <div class="relative h-48 overflow-hidden bg-stone-100">
+            <div class="relative h-44 sm:h-48 overflow-hidden bg-stone-100">
               <img src="${item.image}" onerror="this.onerror=null;this.src='${item.fallback}'" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-              <div class="absolute top-4 left-4">
+              <div class="absolute top-3.5 left-3.5">
                 <span class="px-3 py-1 rounded-full text-[11px] font-semibold backdrop-blur-md bg-white/90 text-brand-charcoal shadow-2xs">
                   ${item.badge}
                 </span>
               </div>
-              <div class="absolute top-4 right-4">
+              <div class="absolute top-3.5 right-3.5">
                 <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
                   ${item.statusText}
                 </span>
               </div>
             </div>
 
-            <div class="p-6">
-              <span class="text-[11px] text-brand-muted flex items-center gap-1.5 mb-2 font-light">
+            <div class="p-5 sm:p-6">
+              <span class="text-[11px] text-brand-muted flex items-center gap-1.5 mb-1.5 font-light">
                 📅 ${item.date}
               </span>
 
-              <h3 class="font-serif text-lg font-bold text-brand-charcoal mb-2 leading-snug group-hover:text-brand-terracotta transition">
+              <h3 class="font-serif text-base sm:text-lg font-bold text-brand-charcoal mb-2 leading-snug group-hover:text-brand-terracotta transition">
                 ${item.title}
               </h3>
 
-              <p class="text-xs text-brand-muted line-clamp-2 leading-relaxed mb-4 font-light">
+              <p class="text-xs text-brand-muted line-clamp-2 leading-relaxed mb-3.5 font-light">
                 ${item.description}
               </p>
 
-              <p class="text-[11px] text-stone-500 flex items-center gap-1 mb-2">
+              <p class="text-[11px] text-stone-500 flex items-center gap-1 mb-1">
                 <span>📍</span>
                 <span class="truncate">${item.location}</span>
               </p>
             </div>
           </div>
 
-          <div class="px-6 pb-6 pt-3 border-t border-brand-border flex items-center justify-between">
+          <div class="px-5 pb-5 pt-3 sm:px-6 sm:pb-6 border-t border-brand-border flex items-center justify-between gap-2">
             <div>
               <span class="text-[10px] text-stone-400 block">${item.feeNote}</span>
-              <span class="font-serif text-xl font-bold text-brand-terracotta">${item.priceText}</span>
+              <span class="font-serif text-lg sm:text-xl font-bold text-brand-terracotta">${item.priceText}</span>
             </div>
-            <button onclick="handleJoinEvent('${item.id}')" class="px-5 py-2.5 rounded-xl bg-brand-charcoal text-white hover:bg-brand-terracotta font-medium text-xs transition shadow-sm">
+            <button onclick="handleJoinEvent('${item.id}')" class="px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-brand-charcoal text-white hover:bg-brand-terracotta font-medium text-xs transition shadow-sm shrink-0">
               報名參加
             </button>
           </div>
@@ -601,9 +606,9 @@
       currentCategory = cat;
       document.querySelectorAll(".filter-btn").forEach(btn => {
         if (btn.getAttribute("data-cat") === cat) {
-          btn.className = "filter-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-brand-charcoal text-white transition";
+          btn.className = "filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-brand-charcoal text-white transition";
         } else {
-          btn.className = "filter-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition";
+          btn.className = "filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition";
         }
       });
       renderEvents();
