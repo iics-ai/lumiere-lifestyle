@@ -42,14 +42,13 @@
   </script>
   <style>
     body { background-color: #FDFBF7; color: #2D2B2A; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
-    /* 手機端橫向滑動條隱藏但保有滑動功能 */
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body class="selection:bg-brand-terracotta selection:text-white antialiased">
 
-  <!-- 1. 導航列 (優化手機端擠壓問題) -->
+  <!-- 1. 導航列 -->
   <header class="sticky top-0 z-40 bg-brand-cream/95 backdrop-blur-md border-b border-brand-border/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
       <div class="flex items-center gap-2 sm:gap-3 select-none shrink-0">
@@ -80,7 +79,7 @@
     </div>
   </header>
 
-  <!-- 2. Hero 視覺焦點區 (手機端字級與間距最佳化) -->
+  <!-- 2. Hero 視覺焦點區 -->
   <section class="relative pt-8 pb-12 sm:pt-14 sm:pb-20 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
@@ -113,7 +112,7 @@
     </div>
   </section>
 
-  <!-- 3. 本週主打推薦 (手機端左右欄垂直堆疊最佳化) -->
+  <!-- 3. 本週主打推薦 (由 10/20 咖啡微讀書會接棒) -->
   <section id="featured" class="py-10 sm:py-12 bg-brand-canvas border-y border-brand-border/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between mb-6 sm:mb-8">
@@ -121,25 +120,25 @@
           <span class="text-[10px] sm:text-xs uppercase tracking-widest text-brand-terracotta font-bold block mb-1">Weekly Spotlight</span>
           <h2 class="font-serif text-xl sm:text-3xl font-bold text-brand-charcoal">本週主打推薦</h2>
         </div>
-        <span class="text-[11px] sm:text-xs text-brand-muted hidden xs:inline">即將登場・歡迎一人前往放鬆</span>
+        <span class="text-[11px] sm:text-xs text-brand-muted hidden xs:inline">即將登場・歡迎下班一人前往</span>
       </div>
       <div id="featuredCardContainer"></div>
     </div>
   </section>
 
-  <!-- 4. 活動過濾與卡片專區 (分類標籤在手機端支援左右橫向流暢滑動) -->
+  <!-- 4. 活動過濾與卡片專區 -->
   <section id="events-section" class="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
       <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-charcoal mb-3">探索聚會活動・找到想加入的日常</h2>
       <p class="text-xs sm:text-sm text-brand-muted">在熟悉的街角咖啡廳、運動中心或溫馨空間，用最舒服的步調認識生活。</p>
     </div>
 
-    <!-- 分類切換按鈕 (手機端支援自然左右平滑滾動) -->
+    <!-- 分類切換按鈕 -->
     <div class="relative mb-6 sm:mb-8">
       <div class="flex items-center sm:justify-center gap-2 overflow-x-auto no-scrollbar py-1 px-1 -mx-4 sm:mx-0 px-4 sm:px-0" id="categoryFilters">
         <button onclick="setFilter('all')" data-cat="all" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-brand-charcoal text-white transition">✨ 全部活動</button>
-        <button onclick="setFilter('mind')" data-cat="mind" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🎨 曼陀羅色彩</button>
         <button onclick="setFilter('reading')" data-cat="reading" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">📚 微讀書會</button>
+        <button onclick="setFilter('mind')" data-cat="mind" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🎨 曼陀羅色彩</button>
         <button onclick="setFilter('learning')" data-cat="learning" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🤖 AI生活開掛</button>
         <button onclick="setFilter('health')" data-cat="health" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🌿 甜點吃瘦學</button>
         <button onclick="setFilter('sports')" data-cat="sports" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🏸 活力羽球</button>
@@ -152,12 +151,12 @@
     <!-- 搜尋框 -->
     <div class="flex justify-end mb-8 sm:mb-10 pb-4 sm:pb-6 border-b border-brand-border">
       <div class="relative w-full sm:w-72">
-        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="搜尋活動（如：東門、AI、讀書會...）" class="w-full text-xs pl-9 pr-4 py-2.5 rounded-full border border-brand-border bg-white focus:outline-none focus:border-brand-terracotta">
+        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="搜尋活動（如：行天宮、AI、料理...）" class="w-full text-xs pl-9 pr-4 py-2.5 rounded-full border border-brand-border bg-white focus:outline-none focus:border-brand-terracotta">
         <span class="absolute left-3.5 top-2.5 text-stone-400">🔍</span>
       </div>
     </div>
 
-    <!-- 活動卡片清單 (手機單欄，電腦多欄) -->
+    <!-- 活動卡片清單 -->
     <div id="eventsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"></div>
   </section>
 
@@ -182,7 +181,7 @@
         <div class="p-5 sm:p-6 rounded-2xl bg-brand-canvas border border-brand-border">
           <div class="text-brand-terracotta text-xl sm:text-2xl mb-2">🚇</div>
           <h4 class="font-bold text-sm text-brand-charcoal mb-1">交通便利・捷運周邊</h4>
-          <p class="text-xs text-brand-muted leading-relaxed">精選東門、行天宮、古亭、雙連、圓山、石牌等捷運步行可達的溫馨場地，輕鬆抵達。</p>
+          <p class="text-xs text-brand-muted leading-relaxed">精選行天宮、東門、古亭、雙連、圓山、石牌等捷運步行可達的溫馨場地，輕鬆抵達。</p>
         </div>
       </div>
     </div>
@@ -192,12 +191,12 @@
     <h3 class="font-serif text-xl sm:text-2xl font-bold text-center text-brand-charcoal mb-6 sm:mb-8">常見問題</h3>
     <div class="space-y-3 sm:space-y-4 text-left">
       <div class="border border-brand-border rounded-2xl p-4 sm:p-5 bg-white">
-        <h4 class="font-bold text-xs sm:text-sm text-brand-charcoal mb-1">Q: 曼陀羅彩繪需要有繪畫基礎嗎？</h4>
-        <p class="text-xs text-brand-muted leading-relaxed">完全不需要！現場會提供專屬紙卡與彩繪用具，人來就好。著色後會由主辦人透過直覺顏色進行分享與心情小解碼，輕鬆有趣。</p>
-      </div>
-      <div class="border border-brand-border rounded-2xl p-4 sm:p-5 bg-white">
         <h4 class="font-bold text-xs sm:text-sm text-brand-charcoal mb-1">Q: 讀書會真的不需要帶書或寫讀書心得嗎？</h4>
         <p class="text-xs text-brand-muted leading-relaxed">真的不用！只要心中想到一本你曾經看過且喜歡的書，在咖啡廳點一杯飲品，大家就像朋友閒聊一樣輪流分享。</p>
+      </div>
+      <div class="border border-brand-border rounded-2xl p-4 sm:p-5 bg-white">
+        <h4 class="font-bold text-xs sm:text-sm text-brand-charcoal mb-1">Q: 曼陀羅彩繪需要有繪畫基礎嗎？</h4>
+        <p class="text-xs text-brand-muted leading-relaxed">完全不需要！現場會提供專屬紙卡與彩繪用具，人來就好。著色後會由主辦人透過直覺顏色進行分享與心情小解碼，輕鬆有趣。</p>
       </div>
       <div class="border border-brand-border rounded-2xl p-4 sm:p-5 bg-white">
         <h4 class="font-bold text-xs sm:text-sm text-brand-charcoal mb-1">Q: 我完全沒有 AI 背景，聽得懂「AI教你開外掛」嗎？</h4>
@@ -210,7 +209,7 @@
     </div>
   </section>
 
-  <!-- 6. 能量測驗彈窗 (優化手機滿版與可滾動體驗) -->
+  <!-- 6. 能量測驗彈窗 -->
   <div id="quizModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
     <div class="bg-white rounded-3xl max-w-md w-full p-5 sm:p-8 shadow-2xl relative text-left my-auto max-h-[90vh] overflow-y-auto">
       <button onclick="closeQuizModal()" class="absolute top-4 right-4 sm:top-5 sm:right-5 text-stone-400 hover:text-stone-700 p-1">✕</button>
@@ -221,17 +220,17 @@
         <p class="text-xs text-brand-muted mb-4 sm:mb-6">請憑第一直覺選擇，幫你推薦最舒服的聚會：</p>
         
         <div class="space-y-2.5 text-xs">
-          <button onclick="answerQuiz('mind')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
-            <span class="font-bold block text-brand-charcoal mb-0.5">A. 想在安靜的咖啡香裡塗鴉，聊聊最近的心情</span>
-            <span class="text-brand-muted text-[11px]">→ 推薦：咖啡廳曼陀羅彩繪與顏色分析 ($200，近東門站)</span>
+          <button onclick="answerQuiz('reading')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
+            <span class="font-bold block text-brand-charcoal mb-0.5">A. 平日下班想喝杯咖啡，輕鬆聽聽大家聊好書</span>
+            <span class="text-brand-muted text-[11px]">→ 推薦：週二夜免做功課・咖啡微讀書會 (自理低消，近行天宮站)</span>
           </button>
           <button onclick="answerQuiz('learning_ai')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
             <span class="font-bold block text-brand-charcoal mb-0.5">B. 想搞懂 AI 怎麼融入日常，讓它幫自己分擔生活雜事</span>
             <span class="text-brand-muted text-[11px]">→ 推薦：AI教你開外掛・提示詞生活達人 ($100，近古亭站)</span>
           </button>
-          <button onclick="answerQuiz('reading')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
-            <span class="font-bold block text-brand-charcoal mb-0.5">C. 平日下班想喝杯咖啡，輕鬆聽聽大家聊好書</span>
-            <span class="text-brand-muted text-[11px]">→ 推薦：週二夜免做功課・咖啡微讀書會 (自理低消，近行天宮站)</span>
+          <button onclick="answerQuiz('mind')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
+            <span class="font-bold block text-brand-charcoal mb-0.5">C. 想在安靜的咖啡香裡塗鴉，聊聊最近的心情</span>
+            <span class="text-brand-muted text-[11px]">→ 推薦：咖啡廳曼陀羅彩繪與顏色分析 ($200，近東門站)</span>
           </button>
           <button onclick="answerQuiz('health_diet')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
             <span class="font-bold block text-brand-charcoal mb-0.5">D. 想吃甜點又怕胖，渴望找到不挨餓的維持體態祕訣</span>
@@ -287,21 +286,6 @@
 
     let eventsData = [
       {
-        id: "evt-mandala-1018",
-        title: "咖啡香裡遇見曼陀羅・紙上著色與色彩心情解碼",
-        category: "mind",
-        date: "2026/10/18 (週日) 14:30 - 16:30",
-        location: "台北市風格咖啡廳 (近捷運東門站)",
-        priceText: "NT$ 200",
-        feeNote: "含 150 元咖啡廳低消飲品一杯",
-        image: "mandala.jpg",
-        fallback: FALLBACK_IMAGES.mind,
-        badge: "本週主打・紙上放鬆",
-        statusText: "歡迎報名",
-        description: "在舒服的咖啡廳裡，免自備任何紙筆！現場提供專屬曼陀羅紙卡與色筆，在咖啡香中隨心塗上喜愛的顏色。完成後透過顏色分析，輕鬆聊聊最近的生活心境。",
-        highlights: ["不用帶紙筆！現場提供專屬曼陀羅紙卡與色筆", "包含 150 元店內低消飲品一杯", "捷運東門站步行可達"]
-      },
-      {
         id: "evt-reading-1020",
         title: "週二夜放鬆・免做功課咖啡微讀書會",
         category: "reading",
@@ -311,8 +295,8 @@
         feeNote: "免活動費，現場各自點一杯飲品即可",
         image: "book.png",
         fallback: FALLBACK_IMAGES.reading,
-        badge: "平日下班・聊聊好書",
-        statusText: "開放報名",
+        badge: "本週主打・聊聊好書",
+        statusText: "即將登場",
         description: "下班後的放鬆聚會！不用買書、不用帶書、不用寫心得。只要心中想到一本你曾經喜歡過的書，點一杯熱咖啡，像朋友聊天一樣隨興交流生活與體會。",
         highlights: ["免活動費！現場依喜好點飲品", "免帶書本、零功課負擔", "捷運行天宮站旁好抵達"]
       },
@@ -369,7 +353,7 @@
         location: "台北市風格咖啡廳 (近捷運東門站)",
         priceText: "NT$ 200",
         feeNote: "含 150 元店內飲品低消一杯",
-        image: "mandala.png",
+        image: "mandala.jpg",
         fallback: FALLBACK_IMAGES.mind,
         badge: "療癒時光・紙上著色",
         statusText: "開放報名",
@@ -461,7 +445,7 @@
       renderEvents();
     });
 
-    // 1. 渲染本週主打推薦 (手機端彈性排版)
+    // 1. 渲染本週主打推薦 (10/20 微讀書會)
     function renderFeaturedEvent() {
       const featured = eventsData[0];
       const container = document.getElementById("featuredCardContainer");
@@ -522,7 +506,7 @@
       `;
     }
 
-    // 2. 渲染活動卡片列表 (手機端高度與內距最佳化)
+    // 2. 渲染活動卡片列表
     function renderEvents() {
       const grid = document.getElementById("eventsGrid");
       if (!grid) return;
@@ -630,17 +614,17 @@
       document.getElementById("quizModal").classList.add("hidden");
     }
 
-    let recommendedCat = 'mind';
+    let recommendedCat = 'reading';
     function answerQuiz(key) {
       const config = {
-        mind: { cat: "mind", emoji: "🎨", title: "咖啡廳曼陀羅彩繪與顏色分析", desc: "在咖啡香氣中安靜著色，不用帶任何工具，透過顏色聊聊近期心境（近東門站）。" },
-        learning_ai: { cat: "learning", emoji: "🤖", title: "AI 教你開外掛・提示詞生活達人", desc: "別再當搜尋引擎用！90分鐘白話學會提示詞心法，讓 AI 成為你的料理、旅遊與生活最強智囊（近古亭站）。" },
         reading: { cat: "reading", emoji: "📚", title: "週二夜・免做功課咖啡微讀書會", desc: "下班後不用準備心得，自理飲品低消，聽聽大家分享喜歡的書本日常（近行天宮站）。" },
+        learning_ai: { cat: "learning", emoji: "🤖", title: "AI 教你開外掛・提示詞生活達人", desc: "別再當搜尋引擎用！90分鐘白話學會提示詞心法，讓 AI 成為你的料理、旅遊與生活最強智囊（近古亭站）。" },
+        mind: { cat: "mind", emoji: "🎨", title: "咖啡廳曼陀羅彩繪與顏色分析", desc: "在咖啡香氣中安靜著色，不用帶任何工具，透過顏色聊聊近期心境（近東門站）。" },
         health_diet: { cat: "health", emoji: "🍰", title: "人氣甜點店長的「聰明吃瘦」控糖法則", desc: "想享受甜點又不想長肉？聽聽網紅店長怎麼在美味與精實身材中取得完美平衡（近雙連站）。" },
         sports: { cat: "sports", emoji: "🏸", title: "大同運動中心活力羽球", desc: "不看球技的歡樂羽球局！200 元含場地與球，流一身汗洗個澡，整個人神清氣爽。" }
       };
 
-      const selected = config[key] || config.mind;
+      const selected = config[key] || config.reading;
       recommendedCat = selected.cat;
 
       document.getElementById("quizResultEmoji").innerText = selected.emoji;
