@@ -85,7 +85,7 @@
       <div class="max-w-3xl">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-sand text-[11px] sm:text-xs font-medium text-brand-charcoal mb-4 sm:mb-6 border border-brand-border">
           <span class="w-2 h-2 rounded-full bg-brand-sage animate-ping"></span>
-          <span>十月生活策展・平日充能 ＆ 週末無負擔聚會</span>
+          <span>生活策展・平日充能 ＆ 週末無負擔聚會</span>
         </div>
         <h1 class="font-serif text-2xl xs:text-3xl sm:text-5xl lg:text-6xl text-brand-charcoal font-bold tracking-tight leading-[1.3] mb-4 sm:mb-6">
           在忙碌日常裡，<br>
@@ -112,7 +112,7 @@
     </div>
   </section>
 
-  <!-- 3. 本週主打推薦 (由 10/20 咖啡微讀書會接棒) -->
+  <!-- 3. 本週主打推薦 (自動由最接近未來的第一筆活動接棒) -->
   <section id="featured" class="py-10 sm:py-12 bg-brand-canvas border-y border-brand-border/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between mb-6 sm:mb-8">
@@ -120,7 +120,7 @@
           <span class="text-[10px] sm:text-xs uppercase tracking-widest text-brand-terracotta font-bold block mb-1">Weekly Spotlight</span>
           <h2 class="font-serif text-xl sm:text-3xl font-bold text-brand-charcoal">本週主打推薦</h2>
         </div>
-        <span class="text-[11px] sm:text-xs text-brand-muted hidden xs:inline">即將登場・歡迎下班一人前往</span>
+        <span class="text-[11px] sm:text-xs text-brand-muted hidden xs:inline">即將登場・歡迎一人前往放鬆</span>
       </div>
       <div id="featuredCardContainer"></div>
     </div>
@@ -137,12 +137,12 @@
     <div class="relative mb-6 sm:mb-8">
       <div class="flex items-center sm:justify-center gap-2 overflow-x-auto no-scrollbar py-1 px-1 -mx-4 sm:mx-0 px-4 sm:px-0" id="categoryFilters">
         <button onclick="setFilter('all')" data-cat="all" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-brand-charcoal text-white transition">✨ 全部活動</button>
-        <button onclick="setFilter('reading')" data-cat="reading" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">📚 微讀書會</button>
+        <button onclick="setFilter('cuisine')" data-cat="cuisine" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🥗 特色料理聚</button>
         <button onclick="setFilter('mind')" data-cat="mind" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🎨 曼陀羅色彩</button>
         <button onclick="setFilter('learning')" data-cat="learning" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🤖 AI生活開掛</button>
+        <button onclick="setFilter('reading')" data-cat="reading" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">📚 微讀書會</button>
         <button onclick="setFilter('health')" data-cat="health" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🌿 甜點吃瘦學</button>
         <button onclick="setFilter('sports')" data-cat="sports" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🏸 活力羽球</button>
-        <button onclick="setFilter('cuisine')" data-cat="cuisine" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🥗 特色料理聚</button>
         <button onclick="setFilter('social')" data-cat="social" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🎲 咖啡廳輕桌遊</button>
         <button onclick="setFilter('picnic')" data-cat="picnic" class="filter-btn shrink-0 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold bg-white text-brand-charcoal border border-brand-border hover:bg-brand-canvas transition">🧺 花博野餐</button>
       </div>
@@ -151,7 +151,7 @@
     <!-- 搜尋框 -->
     <div class="flex justify-end mb-8 sm:mb-10 pb-4 sm:pb-6 border-b border-brand-border">
       <div class="relative w-full sm:w-72">
-        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="搜尋活動（如：行天宮、AI、料理...）" class="w-full text-xs pl-9 pr-4 py-2.5 rounded-full border border-brand-border bg-white focus:outline-none focus:border-brand-terracotta">
+        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="搜尋活動（如：石牌、AI、野餐...）" class="w-full text-xs pl-9 pr-4 py-2.5 rounded-full border border-brand-border bg-white focus:outline-none focus:border-brand-terracotta">
         <span class="absolute left-3.5 top-2.5 text-stone-400">🔍</span>
       </div>
     </div>
@@ -176,12 +176,12 @@
         <div class="p-5 sm:p-6 rounded-2xl bg-brand-canvas border border-brand-border">
           <div class="text-brand-sage text-xl sm:text-2xl mb-2">🎈</div>
           <h4 class="font-bold text-sm text-brand-charcoal mb-1">空手出席・無須負擔</h4>
-          <p class="text-xs text-brand-muted leading-relaxed">AI開外掛、甜點店長吃瘦學、曼陀羅彩繪與讀書會皆免備繁雜用具，人來就好。</p>
+          <p class="text-xs text-brand-muted leading-relaxed">特色料理、AI開外掛、甜點店長吃瘦學、曼陀羅彩繪與讀書會皆免備繁雜用具，人來就好。</p>
         </div>
         <div class="p-5 sm:p-6 rounded-2xl bg-brand-canvas border border-brand-border">
           <div class="text-brand-terracotta text-xl sm:text-2xl mb-2">🚇</div>
           <h4 class="font-bold text-sm text-brand-charcoal mb-1">交通便利・捷運周邊</h4>
-          <p class="text-xs text-brand-muted leading-relaxed">精選行天宮、東門、古亭、雙連、圓山、石牌等捷運步行可達的溫馨場地，輕鬆抵達。</p>
+          <p class="text-xs text-brand-muted leading-relaxed">精選石牌、東門、圓山、古亭、行天宮、雙連等捷運步行可達的溫馨場地，輕鬆抵達。</p>
         </div>
       </div>
     </div>
@@ -191,8 +191,8 @@
     <h3 class="font-serif text-xl sm:text-2xl font-bold text-center text-brand-charcoal mb-6 sm:mb-8">常見問題</h3>
     <div class="space-y-3 sm:space-y-4 text-left">
       <div class="border border-brand-border rounded-2xl p-4 sm:p-5 bg-white">
-        <h4 class="font-bold text-xs sm:text-sm text-brand-charcoal mb-1">Q: 讀書會真的不需要帶書或寫讀書心得嗎？</h4>
-        <p class="text-xs text-brand-muted leading-relaxed">真的不用！只要心中想到一本你曾經看過且喜歡的書，在咖啡廳點一杯飲品，大家就像朋友閒聊一樣輪流分享。</p>
+        <h4 class="font-bold text-xs sm:text-sm text-brand-charcoal mb-1">Q: 料理活動需要自備食材或廚具嗎？</h4>
+        <p class="text-xs text-brand-muted leading-relaxed">完全不需要！活動費用已包含當日新鮮食材與料理設備，現場老師會帶領大家輕鬆動手做，新手也能無壓力享受做菜與共餐的樂趣。</p>
       </div>
       <div class="border border-brand-border rounded-2xl p-4 sm:p-5 bg-white">
         <h4 class="font-bold text-xs sm:text-sm text-brand-charcoal mb-1">Q: 曼陀羅彩繪需要有繪畫基礎嗎？</h4>
@@ -220,21 +220,21 @@
         <p class="text-xs text-brand-muted mb-4 sm:mb-6">請憑第一直覺選擇，幫你推薦最舒服的聚會：</p>
         
         <div class="space-y-2.5 text-xs">
-          <button onclick="answerQuiz('reading')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
-            <span class="font-bold block text-brand-charcoal mb-0.5">A. 平日下班想喝杯咖啡，輕鬆聽聽大家聊好書</span>
-            <span class="text-brand-muted text-[11px]">→ 推薦：週二夜免做功課・咖啡微讀書會 (自理低消，近行天宮站)</span>
-          </button>
-          <button onclick="answerQuiz('learning_ai')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
-            <span class="font-bold block text-brand-charcoal mb-0.5">B. 想搞懂 AI 怎麼融入日常，讓它幫自己分擔生活雜事</span>
-            <span class="text-brand-muted text-[11px]">→ 推薦：AI教你開外掛・提示詞生活達人 ($100，近古亭站)</span>
+          <button onclick="answerQuiz('cuisine')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
+            <span class="font-bold block text-brand-charcoal mb-0.5">A. 想要溫暖手作、享受原味低負擔美食</span>
+            <span class="text-brand-muted text-[11px]">→ 推薦：週末特色料理聚 (近石牌站)</span>
           </button>
           <button onclick="answerQuiz('mind')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
-            <span class="font-bold block text-brand-charcoal mb-0.5">C. 想在安靜的咖啡香裡塗鴉，聊聊最近的心情</span>
+            <span class="font-bold block text-brand-charcoal mb-0.5">B. 想在安靜的咖啡香裡塗鴉，聊聊最近的心情</span>
             <span class="text-brand-muted text-[11px]">→ 推薦：咖啡廳曼陀羅彩繪與顏色分析 ($200，近東門站)</span>
           </button>
-          <button onclick="answerQuiz('health_diet')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
-            <span class="font-bold block text-brand-charcoal mb-0.5">D. 想吃甜點又怕胖，渴望找到不挨餓的維持體態祕訣</span>
-            <span class="text-brand-muted text-[11px]">→ 推薦：網紅甜點店長「怎麼吃瘦」控糖學 ($100，近雙連站)</span>
+          <button onclick="answerQuiz('learning_ai')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
+            <span class="font-bold block text-brand-charcoal mb-0.5">C. 想搞懂 AI 怎麼融入日常，讓它幫自己分擔生活雜事</span>
+            <span class="text-brand-muted text-[11px]">→ 推薦：AI教你開外掛・提示詞生活達人 ($100，近古亭站)</span>
+          </button>
+          <button onclick="answerQuiz('reading')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
+            <span class="font-bold block text-brand-charcoal mb-0.5">D. 平日下班想喝杯咖啡，輕鬆聽聽大家聊好書</span>
+            <span class="text-brand-muted text-[11px]">→ 推薦：週二夜免做功課・咖啡微讀書會 (自理低消，近行天宮站)</span>
           </button>
           <button onclick="answerQuiz('sports')" class="w-full text-left p-3.5 rounded-2xl border border-brand-border hover:border-brand-terracotta hover:bg-brand-cream transition">
             <span class="font-bold block text-brand-charcoal mb-0.5">E. 想動動身體、流流汗，拋開工作煩惱</span>
@@ -269,7 +269,7 @@
     </div>
   </footer>
 
-  <!-- 8. JAVASCRIPT 資料與互動邏輯 -->
+  <!-- 8. JAVASCRIPT 資料與自動過期邏輯 -->
   <script>
     const COMMON_FORM_URL = "https://forms.gle/djkMvk8t8i2TzaPt8";
 
@@ -284,34 +284,69 @@
       social: "https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=800&q=80"
     };
 
-    let eventsData = [
+    // 所有活動完整資料庫（包含 endDate 結束時間，程式會自動比對下架）
+    const RAW_EVENTS_DATA = [
+      {
+        id: "evt-health-1014",
+        title: "換季不虛累・專業護理師的秋冬「精準營養與內調修復」提案",
+        category: "health",
+        date: "2026/10/14 (週三) 19:30 - 21:00",
+        endDate: "2026-10-14T21:00:00",
+        location: "台北市共享美學沙龍 (近捷運雙連站)",
+        priceText: "NT$ 100",
+        feeNote: "銅板價場地清潔費分攤",
+        image: "health.png",
+        fallback: FALLBACK_IMAGES.diet,
+        badge: "營養保健・專業分享",
+        statusText: "活動已結束",
+        description: "資深護理師帶你避開隱形營養赤字，從日常餐盤結構到微量元素補充，手把手教你如何用日常飲食為免疫力打底。",
+        highlights: ["破解慢性發炎營養盲點", "護理師私房搭配指南", "雙連站旁步行即達"]
+      },
+      {
+        id: "evt-mandala-1018",
+        title: "咖啡香裡遇見曼陀羅・紙上著色與色彩心情解碼",
+        category: "mind",
+        date: "2026/10/18 (週日) 14:30 - 16:30",
+        endDate: "2026-10-18T16:30:00",
+        location: "台北市風格咖啡廳 (近捷運東門站)",
+        priceText: "NT$ 200",
+        feeNote: "含 150 元咖啡廳低消飲品一杯",
+        image: "mandala.jpg",
+        fallback: FALLBACK_IMAGES.mind,
+        badge: "紙上著色・身心放鬆",
+        statusText: "活動已結束",
+        description: "現場提供專屬曼陀羅紙卡與色筆，在咖啡香中隨心塗上喜愛的顏色，透過顏色分析聊聊生活心境。",
+        highlights: ["免自備紙筆工具", "含 150 元低消飲品", "東門站旁溫馨空間"]
+      },
       {
         id: "evt-reading-1020",
         title: "週二夜放鬆・免做功課咖啡微讀書會",
         category: "reading",
         date: "2026/10/20 (週二) 19:00 - 21:00",
+        endDate: "2026-10-20T21:00:00",
         location: "台北市溫馨咖啡館 (近捷運行天宮站)",
         priceText: "自理低消",
         feeNote: "免活動費，現場各自點一杯飲品即可",
         image: "book.png",
         fallback: FALLBACK_IMAGES.reading,
-        badge: "本週主打・聊聊好書",
-        statusText: "即將登場",
-        description: "下班後的放鬆聚會！不用買書、不用帶書、不用寫心得。只要心中想到一本你曾經喜歡過的書，點一杯熱咖啡，像朋友聊天一樣隨興交流生活與體會。",
-        highlights: ["免活動費！現場依喜好點飲品", "免帶書本、零功課負擔", "捷運行天宮站旁好抵達"]
+        badge: "下班放鬆・聊聊好書",
+        statusText: "活動已結束",
+        description: "不用買書、不用帶書、不用寫心得。點一杯熱咖啡，像朋友聊天一樣隨興交流生活與體會。",
+        highlights: ["自理飲品免活動費", "零功課零負擔", "行天宮站周邊便利"]
       },
       {
         id: "evt-cuisine-1024",
         title: "週末暖廚日常・特色料理與無負擔餐桌聚",
         category: "cuisine",
         date: "2026/10/24 (週六) 11:00 - 13:00",
+        endDate: "2026-10-24T13:00:00",
         location: "生活風格空間 (近捷運石牌站)",
         priceText: "食材均攤",
         feeNote: "包含當日料理新鮮食材與美味享用",
         image: "cuisine.png",
         fallback: FALLBACK_IMAGES.cuisine,
-        badge: "美味手作・舌尖療癒",
-        statusText: "開放報名",
+        badge: "本週主打・舌尖療癒",
+        statusText: "即將登場",
         description: "告別忙碌外食，一起動手做一頓美味又沒有負擔的特色料理。從香氣到擺盤，在輕鬆的節奏裡享受料理的療癒力與溫暖交流。",
         highlights: ["新手友善！無須廚藝基礎", "食材新鮮無負擔", "捷運石牌站周邊步行即達"]
       },
@@ -320,6 +355,7 @@
         title: "週末夜揮拍流流汗・大同運動中心活力羽球聚",
         category: "sports",
         date: "2026/10/24 (週六) 18:00 - 20:00",
+        endDate: "2026-10-24T20:00:00",
         location: "台北市大同運動中心 羽球場 (近捷運大橋頭站/民權西路站)",
         priceText: "NT$ 200",
         feeNote: "含場地費與比賽級羽球",
@@ -335,6 +371,7 @@
         title: "秋日花博草地野餐日・帶150元喜愛的食物來吹風",
         category: "picnic",
         date: "2026/10/25 (週日) 14:00 - 17:00",
+        endDate: "2026-10-25T17:00:00",
         location: "台北花博公園草坪 (近捷運圓山站)",
         priceText: "自備點心",
         feeNote: "免活動費，每人帶約150元喜愛的食物分享",
@@ -350,10 +387,11 @@
         title: "午後曼陀羅彩繪與心靈對話・紙上著色交流",
         category: "mind",
         date: "2026/10/25 (週日) 14:30 - 16:30",
+        endDate: "2026-10-25T16:30:00",
         location: "台北市風格咖啡廳 (近捷運東門站)",
         priceText: "NT$ 200",
         feeNote: "含 150 元店內飲品低消一杯",
-        image: "mandala.jpg",
+        image: "mandala.png",
         fallback: FALLBACK_IMAGES.mind,
         badge: "療癒時光・紙上著色",
         statusText: "開放報名",
@@ -365,6 +403,7 @@
         title: "AI 教你開外掛・告別無效搜尋！零門檻「提示詞心法」變身生活達人",
         category: "learning",
         date: "2026/10/26 (週一) 19:30 - 21:00",
+        endDate: "2026-10-26T21:00:00",
         location: "台北市共享空間 (近捷運古亭站)",
         priceText: "NT$ 100",
         feeNote: "超值特規場地分攤費",
@@ -380,6 +419,7 @@
         title: "週二夜放鬆・免做功課咖啡微讀書會 (場次二)",
         category: "reading",
         date: "2026/10/27 (週二) 19:00 - 21:00",
+        endDate: "2026-10-27T21:00:00",
         location: "台北市溫馨咖啡館 (近捷運行天宮站)",
         priceText: "自理低消",
         feeNote: "免活動費，現場各自點一杯飲品即可",
@@ -395,6 +435,7 @@
         title: "甜蜜無罪惡・人氣網紅甜點店長的「聰明吃瘦」控糖法則",
         category: "health",
         date: "2026/10/28 (週三) 19:30 - 21:00",
+        endDate: "2026-10-28T21:00:00",
         location: "台北市共享空間 (近捷運雙連站)",
         priceText: "NT$ 100",
         feeNote: "超值百元場地分攤費",
@@ -410,6 +451,7 @@
         title: "萬聖週末健康動一動・大同運動中心活力羽球聚",
         category: "sports",
         date: "2026/10/31 (週六) 18:00 - 20:00",
+        endDate: "2026-10-31T20:00:00",
         location: "台北市大同運動中心 羽球場 (近捷運大橋頭站/民權西路站)",
         priceText: "NT$ 200",
         feeNote: "含場地費與比賽級羽球",
@@ -425,6 +467,7 @@
         title: "週日午後咖啡廳輕桌遊・免帶道具歡樂破冰聚",
         category: "social",
         date: "2026/11/01 (週日) 15:30 - 18:30",
+        endDate: "2026-11-01T18:30:00",
         location: "台北市風格咖啡廳 (近捷運東門站)",
         priceText: "NT$ 200",
         feeNote: "含 150 元咖啡廳低消飲品一杯",
@@ -437,6 +480,16 @@
       }
     ];
 
+    // ==========================================
+    // 💡 關鍵：自動過期過濾器 (Auto-Expiry Filter)
+    // ==========================================
+    const now = new Date();
+    // 只保留活動結束時間在「現在時間」之後的有效活動
+    const eventsData = RAW_EVENTS_DATA.filter(ev => {
+      const end = new Date(ev.endDate);
+      return end > now;
+    });
+
     let currentCategory = 'all';
     let currentKeyword = '';
 
@@ -445,12 +498,22 @@
       renderEvents();
     });
 
-    // 1. 渲染本週主打推薦 (10/20 微讀書會)
+    // 1. 渲染本週主打推薦 (永遠自動抓取未過期的第一筆活動)
     function renderFeaturedEvent() {
-      const featured = eventsData[0];
       const container = document.getElementById("featuredCardContainer");
       if (!container) return;
 
+      if (eventsData.length === 0) {
+        container.innerHTML = `
+          <div class="bg-white rounded-3xl border border-brand-border p-8 text-center text-brand-muted">
+            <p class="text-3xl mb-2">🌿</p>
+            <p class="text-sm font-medium">近期活動正在熱烈策展中，敬請期待下週全新排程！</p>
+          </div>
+        `;
+        return;
+      }
+
+      const featured = eventsData[0];
       container.innerHTML = `
         <div class="bg-white rounded-3xl border border-brand-border overflow-hidden shadow-soft hover:shadow-card-hover transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 text-left">
           <div class="lg:col-span-7 relative min-h-[220px] xs:min-h-[260px] sm:min-h-[340px] lg:min-h-[380px] overflow-hidden group">
@@ -462,7 +525,7 @@
               </span>
             </div>
             <div class="absolute bottom-4 left-4 right-4 text-white">
-              <span class="text-[11px] font-light text-brand-sand block mb-0.5">本週即將登場 • 歡迎一人前往</span>
+              <span class="text-[11px] font-light text-brand-sand block mb-0.5">即將登場 • 歡迎一人前往</span>
               <p class="font-serif text-lg sm:text-2xl font-bold leading-snug">${featured.title}</p>
             </div>
           </div>
@@ -506,7 +569,7 @@
       `;
     }
 
-    // 2. 渲染活動卡片列表
+    // 2. 渲染活動卡片列表 (僅顯示未過期的有效活動)
     function renderEvents() {
       const grid = document.getElementById("eventsGrid");
       if (!grid) return;
@@ -614,17 +677,17 @@
       document.getElementById("quizModal").classList.add("hidden");
     }
 
-    let recommendedCat = 'reading';
+    let recommendedCat = 'cuisine';
     function answerQuiz(key) {
       const config = {
-        reading: { cat: "reading", emoji: "📚", title: "週二夜・免做功課咖啡微讀書會", desc: "下班後不用準備心得，自理飲品低消，聽聽大家分享喜歡的書本日常（近行天宮站）。" },
-        learning_ai: { cat: "learning", emoji: "🤖", title: "AI 教你開外掛・提示詞生活達人", desc: "別再當搜尋引擎用！90分鐘白話學會提示詞心法，讓 AI 成為你的料理、旅遊與生活最強智囊（近古亭站）。" },
+        cuisine: { cat: "cuisine", emoji: "🥗", title: "週末暖廚日常・特色料理聚", desc: "動手做一頓美味無負擔的特色料理，享受香氣與溫暖交流（近石牌站）。" },
         mind: { cat: "mind", emoji: "🎨", title: "咖啡廳曼陀羅彩繪與顏色分析", desc: "在咖啡香氣中安靜著色，不用帶任何工具，透過顏色聊聊近期心境（近東門站）。" },
-        health_diet: { cat: "health", emoji: "🍰", title: "人氣甜點店長的「聰明吃瘦」控糖法則", desc: "想享受甜點又不想長肉？聽聽網紅店長怎麼在美味與精實身材中取得完美平衡（近雙連站）。" },
+        learning_ai: { cat: "learning", emoji: "🤖", title: "AI 教你開外掛・提示詞生活達人", desc: "別再當搜尋引擎用！90分鐘白話學會提示詞心法，讓 AI 成為你的料理、旅遊與生活最強智囊（近古亭站）。" },
+        reading: { cat: "reading", emoji: "📚", title: "週二夜・免做功課咖啡微讀書會", desc: "下班後不用準備心得，自理飲品低消，聽聽大家分享喜歡的書本日常（近行天宮站）。" },
         sports: { cat: "sports", emoji: "🏸", title: "大同運動中心活力羽球", desc: "不看球技的歡樂羽球局！200 元含場地與球，流一身汗洗個澡，整個人神清氣爽。" }
       };
 
-      const selected = config[key] || config.reading;
+      const selected = config[key] || config.cuisine;
       recommendedCat = selected.cat;
 
       document.getElementById("quizResultEmoji").innerText = selected.emoji;
